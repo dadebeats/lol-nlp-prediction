@@ -5,7 +5,7 @@ from youtube_channels import league_to_youtube_channel_mapping
 # Target source (e.g. playlist, channel, or video)
 
 
-output_dir = 'downloads'
+output_dir = 'commentary_data'
 
 # Loop over leagues
 for league_id, url in league_to_youtube_channel_mapping.items():
