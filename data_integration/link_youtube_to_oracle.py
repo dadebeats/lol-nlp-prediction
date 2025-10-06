@@ -1,4 +1,5 @@
 import os
+import pandas as pd
 
 team_mapping = {
     "NIP": "Ninjas in Pyjamas",
@@ -30,7 +31,7 @@ if __name__ == "__main__":
     split = "Spring"
     league = "LPL"
     # ________----_____
-    folder_path = f"commentary_data/LPL_24_{split.lower()}"
+    folder_path = f"commentary_data/{league}_{year}_{split.lower()}"
     # Dictionary to store filename: content
     commentary_data = {}
 
@@ -45,8 +46,10 @@ if __name__ == "__main__":
 
     sample_commentary = (team_mapping["AL"], team_mapping["IG"], 1)
     team_a, team_b, game_order = sample_commentary
+    match_metadata = pd.read_csv(f"data_scraping/oracle_elixir_data/processed/20{year}.csv", index_col=0)
     mask = (
                    ((match_metadata["team1_name"] == team_a) & (match_metadata["team2_name"] == team_b)) |
                    ((match_metadata["team1_name"] == team_b) & (match_metadata["team2_name"] == team_a))
            ) & (match_metadata["game_order"] == game_order)
     result_row = match_metadata.loc[mask]
+    #assert len(result_row) == 1  TODO: hleda vsechny vyskyty za rok, disambiguate
