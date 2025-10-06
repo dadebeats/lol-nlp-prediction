@@ -1,1 +1,1 @@
-# lolko_diplomka
+# Diplomová práce Adam Kellich
