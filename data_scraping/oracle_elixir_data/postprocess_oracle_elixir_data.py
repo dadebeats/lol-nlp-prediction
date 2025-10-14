@@ -22,10 +22,8 @@ def extract_match_metadata(df):
         teams = match_df[match_df["position"] == "team"]  # team rows have no position
         players = match_df[match_df["position"].isin(position_order)]  # player rows have positions
         # Sort players within each side by position order
-        players = players.sort_values(["side", "position"])
         sides = teams["side"].unique()
-        if len(sides) < 2:
-            continue  # skip malformed matches
+
         # Extract teams
         team1_side = sides[0]
         team2_side = sides[1]
@@ -38,6 +36,10 @@ def extract_match_metadata(df):
             "team2_side": team2_side,
             "team1_bans": [team1[f"ban{i}"] for i in range(1, 6) if pd.notna(team1[f"ban{i}"])],
             "team2_bans": [team2[f"ban{i}"] for i in range(1, 6) if pd.notna(team2[f"ban{i}"])],
+            "team1_result": team1["result"],
+
+            #"team1_kills": team1["kills"],
+
         })
         # Extract player & champion names by team
         team1_players = players.loc[players["side"] == team1_side]["playername"].tolist()
@@ -63,5 +65,5 @@ if __name__ == '__main__':
         raw_data = pd.read_csv(f"data_scraping/oracle_elixir_data/20{year}_LoL_esports_match_data_from_OraclesElixir.csv")
         filtered_data = raw_data[(raw_data.league == league)]
         matches_metadata = extract_match_metadata(filtered_data)
-        matches_metadata.to_csv(f"data_scraping/oracle_elixir_data/processed/20{year}.csv")
+        matches_metadata.to_csv(f"data_scraping/oracle_elixir_data/processed/{league}_20{year}.csv")
 
