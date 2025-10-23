@@ -91,7 +91,7 @@ def get_linked_dataframe(year, league, split):
                 commentary_to_data[filename] = result_row
                 print(filename)
             else:
-                print("Don't have data for: ", team_a, team_b, game_order, disambig)
+                print("Don't have metadata for: ", team_a, team_b, game_order, disambig)
     print(f"Matches covered by commentary ratio: {len(commentary_to_data)}/{len(matches_df)}")
     output_df = combine_dicts_to_df(commentary_to_data, commentary_data)
     return output_df
@@ -123,5 +123,6 @@ if __name__ == "__main__":
         dfs.append(dataset_yearly)
 
     dataset = pd.concat(dfs)
-    dataset.to_csv("../dataset.csv")
+    dataset = dataset.set_index("gameid")
+    dataset.to_csv("dataset.csv")
 
