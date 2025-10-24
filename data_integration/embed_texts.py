@@ -136,7 +136,7 @@ if __name__ == "__main__":
     df_with_vecs = add_embeddings_to_df(df, text_col="text")
 
     # Save to Parquet (keeps lists fine) or NPY
-    df_with_vecs.to_parquet("transcripts_with_embeddings.parquet", index=False)
+    df_with_vecs.to_parquet("transcripts_with_embeddings.parquet")
     np.save("embeddings.npy", np.vstack([np.array(v, dtype=np.float32) for v in df_with_vecs["embedding"]]))
 
     print("Vector dim:", len(df_with_vecs["embedding"].iloc[0]))
