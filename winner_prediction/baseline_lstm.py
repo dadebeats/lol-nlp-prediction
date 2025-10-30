@@ -6,6 +6,24 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
+import argparse
+
+parser = argparse.ArgumentParser(description="Train LSTM on LoL match history sequences")
+parser.add_argument("--dataset", type=str, default="dataset.parquet", help="Path to dataset parquet file")
+parser.add_argument("--feature_fn", type=str, default="both", choices=["embedding", "outcome", "both"],
+                    help="Which feature function to use")
+parser.add_argument("--k", type=int, default=8, help="Number of history matches per team")
+parser.add_argument("--min_history", type=int, default=4, help="Minimum history required for a sample")
+parser.add_argument("--hidden_dim", type=int, default=128, help="Hidden dimension of LSTM")
+parser.add_argument("--num_layers", type=int, default=2, help="Number of LSTM layers")
+parser.add_argument("--dropout", type=float, default=0.2, help="Dropout rate in LSTM")
+parser.add_argument("--bidirectional", action="store_true", help="Use bidirectional LSTM")
+parser.add_argument("--epochs", type=int, default=100, help="Number of training epochs")
+parser.add_argument("--batch_size", type=int, default=64, help="Batch size for training")
+parser.add_argument("--lr", type=float, default=3e-4, help="Learning rate")
+parser.add_argument("--weight_decay", type=float, default=1e-4, help="Weight decay for AdamW")
+parser.add_argument("--pooling", type=str, default="last", choices=["last", "mean"], help="LSTM pooling mode")
+
 
 # ---------- Helpers
 class LSTMClassifier(nn.Module):
@@ -143,30 +161,48 @@ def _history_indices_for_match(
 
 # ---------- Default feature function (simple, safe placeholder)
 
-def embedding_feature_fn(row: pd.Series, pov_side: str) -> np.ndarray:
+def embedding_feature_fn(row: pd.Series, team_name: str) -> np.ndarray:
     """
     Feature function that simply returns the embedding vector for the given row.
     """
     return np.array(row["embedding"], dtype=np.float32)
 
-
-def outcome_feature_fn(row: pd.Series, pov_side: str) -> np.ndarray:
+def outcome_feature_fn(row: pd.Series, team_name: str) -> np.ndarray:
     """
     Each history element is [team1_win_flag, team2_win_flag],
     so for the POV side we take its own and opponent's last result (1=win, 0=loss).
     """
+    if team_name == row["team1_name"]:
+        pov_side = "team1"
+    elif team_name == row["team2_name"]:
+        pov_side = "team2"
+    else:
+        raise ValueError(f"Invalid team name: {team_name}")
+
     pov_win = float(_pov_result(row, pov_side))
     return np.array([pov_win], dtype=np.float32)
+
+
+def both_feature_fn(row: pd.Series, team_name: str) -> np.ndarray:
+    if team_name == row["team1_name"]:
+        pov_side = "team1"
+    elif team_name == row["team2_name"]:
+        pov_side = "team2"
+    else:
+        raise ValueError(f"Invalid team name: {team_name}")
+
+    pov_win = float(_pov_result(row, pov_side))
+    return np.concatenate([np.array([pov_win], dtype=np.float32), np.array(row["embedding"], dtype=np.float32)])
 
 # ---------- Dataset builder
 
 def build_sequence_dataset(
     df: pd.DataFrame,
-    k_history: int = 5,
-    min_history: int = 1,                    # require at least this many; else skip sample
-    pad_to_k: bool = True,                   # left-pad to fixed length if shorter than k
+    k_history: int = 10,
+    min_history: int = 1,  # require at least this many; else skip sample
+    pad_to_k: bool = True,  # left-pad to fixed length if shorter than k
     feature_fn: Callable[[pd.Series, str], np.ndarray] = embedding_feature_fn,
-    return_concat: bool = True               # return concatenated [team1_hist + team2_hist]
+    return_concat: bool = True  # return concatenated [team1_hist + team2_hist]
 ) -> Dict[str, Any]:
     """
     Build a dataset suitable for RNN/Transformer training.
@@ -186,15 +222,13 @@ def build_sequence_dataset(
     # Precompute index map for (team, roster) → match indices sorted by date
     idx_map = _build_team_roster_index(df)
 
-    samples_meta = []
-    left_hist_vecs = []
-    right_hist_vecs = []
+    seqs = []  # NEW: store (k, D_total) sequences
     targets = []
+    samples_meta = []
 
     # Iterate matches in chronological order to avoid peeking forward
     for match_idx in df.index:
         row = df.loc[match_idx]
-
         # Build two POVs for this match
         povs = ["team1", "team2"]
         pov_histories = {}
@@ -214,12 +248,11 @@ def build_sequence_dataset(
         left_idx = pov_histories["team1"]
         right_idx = pov_histories["team2"]
 
-        def to_seq(idxs: List[int], pov: str) -> List[np.ndarray]:
-            return [feature_fn(df.loc[j], pov) for j in idxs]
+        def to_seq(idxs: List[int], team_name: str) -> List[np.ndarray]:
+            return [feature_fn(df.loc[j], team_name) for j in idxs]
 
-        left_seq = to_seq(left_idx, "team1")
-        right_seq = to_seq(right_idx, "team2")
-
+        left_seq = to_seq(left_idx, row["team1_name"])
+        right_seq = to_seq(right_idx, row["team2_name"])
         # Determine feature dim
         D = left_seq[0].shape[0] if left_seq else feature_fn(row, "team1").shape[0]
 
@@ -227,7 +260,8 @@ def build_sequence_dataset(
         def pad(seq: List[np.ndarray]) -> np.ndarray:
             if pad_to_k and len(seq) < k_history:
                 pad_len = k_history - len(seq)
-                return np.vstack([np.zeros((pad_len, D), dtype=np.float32), np.vstack(seq) if seq else np.zeros((0, D), dtype=np.float32)])
+                return np.vstack([np.zeros((pad_len, D), dtype=np.float32),
+                                  np.vstack(seq) if seq else np.zeros((0, D), dtype=np.float32)])
             elif len(seq) > 0:
                 return np.vstack(seq)
             else:
@@ -236,67 +270,58 @@ def build_sequence_dataset(
         left_arr = pad(left_seq)
         right_arr = pad(right_seq)
 
-        # Target from team1 POV
-        # we'll create **two** samples: one with POV team1, one with POV team2 for the final concat
-        for pov in ["team1", "team2"]:
-            y = _pov_result(row, pov)
-            # Final entry to the RNN will be concatenated vector from both team history entries.
-            # We'll keep both sides as separate arrays and also a concatenated timeline if desired.
-            if pov == "team1":
-                X_left = left_arr
-                X_right = right_arr
-            else:
-                # For POV=team2, we keep the left=team2 history, right=team1 history (so left is always POV)
-                X_left = right_arr
-                X_right = left_arr
+        # ONE sample per match, consistent POV = team1
+        y = int(row["team1_result"])
 
-            left_hist_vecs.append(X_left)
-            right_hist_vecs.append(X_right)
-            targets.append(y)
+        # Per-timestep feature concat: (k, D_left + D_right)
+        pair_seq = np.concatenate([left_arr, right_arr], axis=1)  # <-- feature axis
 
-            team_name, roster = _team_and_roster(row, pov)
-            samples_meta.append({
-                "match_idx": match_idx,
-                "pov_side": pov,
-                "team_name": team_name,
-                "roster": roster,
-                "history_indices_pov": pov_histories[pov],
-                "history_indices_opp": pov_histories[_other_side(pov)],
-                "match_date": row["date"]
-            })
+        seqs.append(pair_seq)
+        targets.append(y)
 
-    if not left_hist_vecs:
+        samples_meta.append({
+            "match_idx": match_idx,
+            "pov_side": "team1",
+            "team_name": row["team1_name"],
+            "roster": _as_tuple_roster(row["team1_players"]),
+            "history_indices_pov": left_idx,
+            "history_indices_opp": right_idx,
+            "match_date": row["date"]
+        })
+
+    if not seqs:
         raise RuntimeError("No samples produced. Loosen min_history or check roster parsing.")
 
-    X_left = np.stack(left_hist_vecs)   # (N, k, D)
-    X_right = np.stack(right_hist_vecs) # (N, k, D)
+    X = np.stack(seqs)  # (N, k, D_total)
     y = np.array(targets, dtype=np.int64)
 
-    out = {
-        "X_left": X_left,
-        "X_right": X_right,
-        "y": y,
-        "meta": samples_meta,
-        "k_history": k_history
-    }
-    if return_concat:
-        # time-concat along axis=1 to shape (N, 2k, D)
-        out["X"] = np.concatenate([X_left, X_right], axis=1)
-
+    out = {"X": X, "y": y, "meta": samples_meta, "k_history": k_history}
     return out
 
+
 if __name__ == "__main__":
+    args = parser.parse_args()
+    # --- Select feature function
+    feature_map = {
+        "embedding": embedding_feature_fn,
+        "outcome": outcome_feature_fn,
+        "both": both_feature_fn
+    }
+    feat_fn = feature_map[args.feature_fn]
+
+    print(f"⚙️ Using feature_fn={args.feature_fn}, k={args.k}, hidden_dim={args.hidden_dim}, layers={args.num_layers}")
+
     df = pd.read_parquet("dataset.parquet")
     data = build_sequence_dataset(
         df,
-        k_history=5,
-        min_history=5,
+        k_history=args.k,
+        min_history=args.min_history,
         pad_to_k=True,
-        feature_fn=embedding_feature_fn,
+        feature_fn=feat_fn,
         return_concat=True
     )
-    X = data["X"]              # (N, 2*k, D)
-    y = data["y"]              # (N,)
+    X = data["X"]  # (N, 2*k, D)
+    y = data["y"]  # (N,)
     print("Samples:", X.shape, "Targets:", y.shape)
     print("First sample meta:", data["meta"][0])
 
@@ -305,7 +330,7 @@ if __name__ == "__main__":
 
     # Train/val split (chronological)
     N = X_np.shape[0]
-    split = int(0.05 * N)
+    split = int(0.8 * N)
     train_idx = np.arange(split)
     val_idx = np.arange(split, N)
     #perm = np.random.RandomState(42).permutation(N)
@@ -318,34 +343,34 @@ if __name__ == "__main__":
 
     class SeqDataset(Dataset):
         def __init__(self, X, y):
-            self.X = torch.from_numpy(X)  # (N, T, D)
-            self.y = torch.from_numpy(y)  # (N,)
+            self.X = torch.from_numpy(X)
+            self.y = torch.from_numpy(y)
 
-        def __len__(self):
-            return self.X.shape[0]
+        def __len__(self): return self.X.shape[0]
 
-        def __getitem__(self, i):
-            return self.X[i], self.y[i]
+        def __getitem__(self, i): return self.X[i], self.y[i]
 
 
-    train_ds = SeqDataset(X_train, y_train)
-    val_ds = SeqDataset(X_val, y_val)
-
-    train_loader = DataLoader(train_ds, batch_size=64, shuffle=True, num_workers=0, pin_memory=True)
-    val_loader = DataLoader(val_ds, batch_size=128, shuffle=False, num_workers=0, pin_memory=True)
+    train_loader = DataLoader(SeqDataset(X_train, y_train), batch_size=args.batch_size, shuffle=True)
+    val_loader = DataLoader(SeqDataset(X_val, y_val), batch_size=args.batch_size * 2, shuffle=False)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    model = LSTMClassifier(input_dim=384, hidden_dim=512, num_layers=6, dropout=0.2,
-                           bidirectional=False, pooling="last").to(device)
+    model = LSTMClassifier(
+        input_dim=X_np.shape[2],
+        hidden_dim=args.hidden_dim,
+        num_layers=args.num_layers,
+        dropout=args.dropout,
+        bidirectional=args.bidirectional,
+        pooling=args.pooling
+    ).to(device)
 
-    # Class imbalance handling (pos_weight for BCEWithLogitsLoss)
     pos = (y_train == 1).sum()
     neg = (y_train == 0).sum()
     pos_weight = torch.tensor([(neg / max(pos, 1))], dtype=torch.float32, device=device)
 
     criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
-    optimizer = optim.AdamW(model.parameters(), lr=3e-2, weight_decay=1e-4)
+    optimizer = optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode="max", factor=0.5, patience=2)
 
 
@@ -353,9 +378,8 @@ if __name__ == "__main__":
         model.train(train)
         total_loss, correct, total = 0.0, 0, 0
         for xb, yb in loader:
-            xb = xb.to(device, non_blocking=True)  # (B, T=10, D=384)
-            yb = yb.float().to(device, non_blocking=True)  # (B,)
-            logits = model(xb)  # (B,)
+            xb, yb = xb.to(device), yb.float().to(device)
+            logits = model(xb)
             loss = criterion(logits, yb)
             if train:
                 optimizer.zero_grad(set_to_none=True)
@@ -370,15 +394,14 @@ if __name__ == "__main__":
 
 
     best_val_acc = 0.0
-    epochs = 100
-    for epoch in range(1, epochs + 1):
+    for epoch in range(1, args.epochs + 1):
         tr_loss, tr_acc = run_epoch(train_loader, train=True)
         va_loss, va_acc = run_epoch(val_loader, train=False)
         scheduler.step(va_acc)
         print(
-            f"Epoch {epoch:02d} | train loss {tr_loss:.4f} acc {tr_acc:.3f} | val loss {va_loss:.4f} acc {va_acc:.3f}")
+            f"Epoch {epoch:03d} | train loss {tr_loss:.4f} acc {tr_acc:.3f} | val loss {va_loss:.4f} acc {va_acc:.3f}")
         if va_acc > best_val_acc:
             best_val_acc = va_acc
-            torch.save(model.state_dict(), "lstm_best.pt")
+            torch.save(model.state_dict(), f"lstm_best_{args.feature_fn}.pt")
 
-    print("Best val acc:", best_val_acc)
+    print(f"✅ Training complete. Best val acc: {best_val_acc:.3f}")
