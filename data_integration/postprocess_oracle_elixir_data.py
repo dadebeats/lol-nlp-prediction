@@ -16,6 +16,7 @@ def extract_match_metadata(df):
             "split": match_df["split"].iloc[0],
             "patch": match_df["patch"].iloc[0],
             "game_order": match_df["game"].iloc[0],
+            "gamelength": match_df["gamelength"].iloc[0],
         }
         # Split by side
         position_order = ["top", "jng", "mid", "bot", "sup"]
@@ -37,8 +38,27 @@ def extract_match_metadata(df):
             "team1_bans": [team1[f"ban{i}"] for i in range(1, 6) if pd.notna(team1[f"ban{i}"])],
             "team2_bans": [team2[f"ban{i}"] for i in range(1, 6) if pd.notna(team2[f"ban{i}"])],
             "team1_result": team1["result"],
+            "team1_kills": team1["kills"],
+            "team2_kills": team2["kills"],
+            "team1_dragons": team1["dragons"],
+            "team2_dragons": team2["dragons"],
+            "team1_elders": team1["elders"],
+            "team2_elders": team1["elders"],
+            "team1_barons": team1["barons"],
+            "team2_barons": team2["barons"],
+            "team1_towers": team1["towers"],
+            "team2_towers": team2["towers"],
+            "team1_damage_per_min": team1["dpm"],
+            "team2_damage_per_min": team2["dpm"],
+            "team1_wards_per_min": team1["wpm"],
+            "team2_wards_per_min": team2["wpm"],
+            "team1_gold_per_min": team1["earned gpm"],
+            "team2_gold_per_min": team2["earned gpm"],
+            "team1_gold_diff_at_10": team1["golddiffat10"],
+            "team2_gold_diff_at_10": team2["golddiffat10"],
+            "team1_killsat10": team1["killsat10"],
+            "team2_killsat10": team2["killsat10"],
 
-            #"team1_kills": team1["kills"],
 
         })
         # Extract player & champion names by team
@@ -50,7 +70,7 @@ def extract_match_metadata(df):
             "team1_players": team1_players,
             "team2_players": team2_players,
             "team1_champions": team1_champions,
-            "team2_champions": team2_champions
+            "team2_champions": team2_champions,
         })
         matches.append(meta)
     return pd.DataFrame(matches)

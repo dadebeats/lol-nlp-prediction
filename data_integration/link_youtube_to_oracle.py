@@ -27,7 +27,7 @@ team_mapping = {
     "ES": "eStart",
     "SN": "Suning",
     "RW": "Rogue Warriors",
-    "": "XDominus EsportsX",  # stays as empty string key
+    "DMO": "Dominus Esports",
     "VC": "Vici Gaming"
 }
 
