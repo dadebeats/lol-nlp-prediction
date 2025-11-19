@@ -18,12 +18,12 @@ parser.add_argument("--hidden_dim", type=int, default=128, help="Hidden dimensio
 parser.add_argument("--num_layers", type=int, default=2, help="Number of LSTM layers")
 parser.add_argument("--dropout", type=float, default=0.2, help="Dropout rate in LSTM")
 parser.add_argument("--bidirectional", action="store_true", help="Use bidirectional LSTM")
-parser.add_argument("--epochs", type=int, default=100, help="Number of training epochs")
+parser.add_argument("--epochs", type=int, default=10, help="Number of training epochs")
 parser.add_argument("--batch_size", type=int, default=64, help="Batch size for training")
 parser.add_argument("--lr", type=float, default=3e-4, help="Learning rate")
 parser.add_argument("--weight_decay", type=float, default=1e-4, help="Weight decay for AdamW")
 parser.add_argument("--pooling", type=str, default="last", choices=["last", "mean"], help="LSTM pooling mode")
-parser.add_argument("--target_col", type=str, default="team1_result", choices=["team1_result"],)
+parser.add_argument("--target_col", type=str, default="team1_kills", choices=["team1_result", "team1_kills", "kill_diff", "kill_total"],)
 
 
 # ---------- Helpers
@@ -334,8 +334,10 @@ if __name__ == "__main__":
     print(f"⚙️ Predicting for columns={args.target_col}")
 
     df = pd.read_parquet("dataset.parquet")
-    if args.target_col in df.columns:
-        raise AssertionError("Predicting for value that's present in the data as a feature")
+    df["kill_diff"] = df["team1_kills"] - df["team2_kills"]
+    df["kill_total"] = df["team1_kills"] + df["team2_kills"]
+    #if args.target_col in df.columns:
+    #    raise AssertionError("Predicting for value that's present in the data as a feature")
     data = build_sequence_dataset(
         df,
         k_history=args.k,
@@ -343,7 +345,7 @@ if __name__ == "__main__":
         pad_to_k=True,
         feature_fn=feat_fn,
         return_concat=True,
-        target_column="team1_result"
+        target_column=args.target_col
     )
 
     X = data["X"]  # (N, 2*k, D)
@@ -352,7 +354,8 @@ if __name__ == "__main__":
     print("First sample meta:", data["meta"][0])
 
     X_np = data["X"].astype("float32")  # ensure float32
-    y_np = data["y"].astype("int64")
+    is_classification = (args.target_col == "team1_result")
+    y_np = data["y"].astype("float32")
 
     # Train/val split (chronological)
     N = X_np.shape[0]
@@ -391,43 +394,82 @@ if __name__ == "__main__":
         pooling=args.pooling
     ).to(device)
 
-    pos = (y_train == 1).sum()
-    neg = (y_train == 0).sum()
-    pos_weight = torch.tensor([(neg / max(pos, 1))], dtype=torch.float32, device=device)
+    if is_classification:
+        pos = (y_train == 1).sum()
+        neg = (y_train == 0).sum()
+        pos_weight = torch.tensor([(neg / max(pos, 1))], dtype=torch.float32, device=device)
+        criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
+    else:
+        criterion = nn.MSELoss()
 
-    criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
+
     optimizer = optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode="max", factor=0.5, patience=2)
 
 
     def run_epoch(loader, train=True):
         model.train(train)
-        total_loss, correct, total = 0.0, 0, 0
+        total_loss = 0.0
+        metric_total = 0.0
+        total_batches = 0
+
         for xb, yb in loader:
-            xb, yb = xb.to(device), yb.float().to(device)
+            xb, yb = xb.to(device), yb.to(device)
+
             logits = model(xb)
-            loss = criterion(logits, yb)
+
+            # --- LOSS ---
+            if is_classification:
+                loss = criterion(logits, yb)
+            else:
+                loss = criterion(logits, yb)  # regression raw
+
             if train:
                 optimizer.zero_grad(set_to_none=True)
                 loss.backward()
                 nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
                 optimizer.step()
+
             total_loss += loss.item() * xb.size(0)
-            preds = (logits.sigmoid() >= 0.5).long()
-            correct += (preds == yb.long()).sum().item()
-            total += xb.size(0)
-        return total_loss / total, correct / total
+            batch_size = xb.size(0)
+
+            # --- METRIC ---
+            if is_classification:
+                preds = (logits.sigmoid() >= 0.5).long()
+                metric_total += (preds == yb.long()).sum().item()
+            else:
+                # regression metric = MAE
+                metric_total += (logits - yb).abs().sum().item()
+
+            total_batches += batch_size
+
+        avg_loss = total_loss / total_batches
+
+        if is_classification:
+            avg_metric = metric_total / total_batches  # accuracy
+        else:
+            avg_metric = metric_total / total_batches  # MAE
+
+        return avg_loss, avg_metric
 
 
-    best_val_acc = 0.0
+    best_val_metric = - np.inf
     for epoch in range(1, args.epochs + 1):
-        tr_loss, tr_acc = run_epoch(train_loader, train=True)
-        va_loss, va_acc = run_epoch(val_loader, train=False)
-        scheduler.step(va_acc)
-        print(
-            f"Epoch {epoch:03d} | train loss {tr_loss:.4f} acc {tr_acc:.3f} | val loss {va_loss:.4f} acc {va_acc:.3f}")
-        if va_acc > best_val_acc:
-            best_val_acc = va_acc
+        tr_loss, tr_metric = run_epoch(train_loader, train=True)
+        va_loss, va_metric = run_epoch(val_loader, train=False)
+
+        if is_classification:
+            print(
+                f"Epoch {epoch:03d} | train loss {tr_loss:.4f} acc {tr_metric:.3f} | val loss {va_loss:.4f} acc {va_metric:.3f}")
+        else:
+            print(
+                f"Epoch {epoch:03d} | train loss {tr_loss:.4f} MAE {tr_metric:.3f} | val loss {va_loss:.4f} MAE {va_metric:.3f}")
+            # flip because MAE is better when smaller, compared to accuracy
+            va_metric = -va_metric
+
+        scheduler.step(va_metric)
+        if va_metric > best_val_metric:
+            best_val_metric = va_metric
             torch.save(model.state_dict(), f"lstm_best_{args.feature_fn}.pt")
 
-    print(f"✅ Training complete. Best val acc: {best_val_acc:.3f}")
+    print(f"✅ Training complete. Best val acc: {best_val_metric:.3f}")
