@@ -57,6 +57,13 @@ def get_linked_dataframe(year, league, split):
     folder_path = f"commentary_data/{league}_{year}_{split.lower()}"
     # Dictionary to store filename: content
     commentary_data = {}
+    if year == 25:
+        split_map = {
+            "Winter": "Split 1",
+            "Spring": "Split 2",
+            "Summer": "Split 3"
+        }
+        split = split_map[split]
 
     for filename in os.listdir(folder_path):
         if filename.endswith(".txt"):
@@ -114,11 +121,12 @@ def combine_dicts_to_df(dict_df: dict, dict_text: dict) -> pd.DataFrame:
 
 if __name__ == "__main__":
     years = [21, 22, 23, 24, 25]
+
     splits = ["Spring", "Summer"]
     league = "LPL"
     # ________----_____
     dfs = []
-    for year, split in product(years, splits):
+    for year, split in  list(product(years, splits)) + [(25, "Winter")]:
         dataset_yearly = get_linked_dataframe(year, league, split)
         dfs.append(dataset_yearly)
 
