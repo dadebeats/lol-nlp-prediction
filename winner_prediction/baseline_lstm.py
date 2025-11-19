@@ -23,6 +23,7 @@ parser.add_argument("--batch_size", type=int, default=64, help="Batch size for t
 parser.add_argument("--lr", type=float, default=3e-4, help="Learning rate")
 parser.add_argument("--weight_decay", type=float, default=1e-4, help="Weight decay for AdamW")
 parser.add_argument("--pooling", type=str, default="last", choices=["last", "mean"], help="LSTM pooling mode")
+parser.add_argument("--target_col", type=str, default="team1_result", choices=["team1_result"],)
 
 
 # ---------- Helpers
@@ -163,9 +164,21 @@ def _history_indices_for_match(
 
 def embedding_feature_fn(row: pd.Series, team_name: str) -> np.ndarray:
     """
-    Feature function that simply returns the embedding vector for the given row.
+    Embedding + side indicator (team_is_team1)
     """
-    return np.array(row["embedding"], dtype=np.float32)
+    if team_name == row["team1_name"]:
+        team_is_team1 = 1.0
+    elif team_name == row["team2_name"]:
+        team_is_team1 = 0.0
+    else:
+        raise ValueError(f"Team name {team_name} not found in row.")
+
+    emb = np.array(row["embedding_masked"], dtype=np.float32)
+
+    return np.concatenate([
+        np.array([team_is_team1], dtype=np.float32),
+        emb
+    ])
 
 def outcome_feature_fn(row: pd.Series, team_name: str) -> np.ndarray:
     """
@@ -186,13 +199,20 @@ def outcome_feature_fn(row: pd.Series, team_name: str) -> np.ndarray:
 def both_feature_fn(row: pd.Series, team_name: str) -> np.ndarray:
     if team_name == row["team1_name"]:
         pov_side = "team1"
+        team_is_team1 = 1.0
     elif team_name == row["team2_name"]:
         pov_side = "team2"
+        team_is_team1 = 0.0
     else:
         raise ValueError(f"Invalid team name: {team_name}")
 
+    embedding = np.array(row["embedding_masked"], dtype=np.float32)
     pov_win = float(_pov_result(row, pov_side))
-    return np.concatenate([np.array([pov_win], dtype=np.float32), np.array(row["embedding"], dtype=np.float32)])
+
+    return np.concatenate([
+        np.array([team_is_team1, pov_win], dtype=np.float32),
+        embedding
+    ])
 
 # ---------- Dataset builder
 
@@ -202,6 +222,7 @@ def build_sequence_dataset(
     min_history: int = 1,  # require at least this many; else skip sample
     pad_to_k: bool = True,  # left-pad to fixed length if shorter than k
     feature_fn: Callable[[pd.Series, str], np.ndarray] = embedding_feature_fn,
+    target_column: str = "team1_result",
     return_concat: bool = True  # return concatenated [team1_hist + team2_hist]
 ) -> Dict[str, Any]:
     """
@@ -271,7 +292,7 @@ def build_sequence_dataset(
         right_arr = pad(right_seq)
 
         # ONE sample per match, consistent POV = team1
-        y = int(row["team1_result"])
+        y = int(row[target_column])
 
         # Per-timestep feature concat: (k, D_left + D_right)
         pair_seq = np.concatenate([left_arr, right_arr], axis=1)  # <-- feature axis
@@ -310,16 +331,21 @@ if __name__ == "__main__":
     feat_fn = feature_map[args.feature_fn]
 
     print(f"⚙️ Using feature_fn={args.feature_fn}, k={args.k}, hidden_dim={args.hidden_dim}, layers={args.num_layers}")
+    print(f"⚙️ Predicting for columns={args.target_col}")
 
     df = pd.read_parquet("dataset.parquet")
+    if args.target_col in df.columns:
+        raise AssertionError("Predicting for value that's present in the data as a feature")
     data = build_sequence_dataset(
         df,
         k_history=args.k,
         min_history=args.min_history,
         pad_to_k=True,
         feature_fn=feat_fn,
-        return_concat=True
+        return_concat=True,
+        target_column="team1_result"
     )
+
     X = data["X"]  # (N, 2*k, D)
     y = data["y"]  # (N,)
     print("Samples:", X.shape, "Targets:", y.shape)
@@ -333,9 +359,9 @@ if __name__ == "__main__":
     split = int(0.8 * N)
     train_idx = np.arange(split)
     val_idx = np.arange(split, N)
-    #perm = np.random.RandomState(42).permutation(N)
-    #split = int(0.8 * N)
-    #train_idx, val_idx = perm[:split], perm[split:]
+    # perm = np.random.RandomState(42).permutation(N)
+    # split = int(0.8 * N)
+    # train_idx, val_idx = perm[:split], perm[split:]
 
     X_train, y_train = X_np[train_idx], y_np[train_idx]
     X_val, y_val = X_np[val_idx], y_np[val_idx]
