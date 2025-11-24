@@ -78,7 +78,7 @@ def run_pca_and_attach(
     random_state: Optional[int] = 42,
     x_col: str = "pca_x",
     y_col: str = "pca_y",
-    n_outliers_to_omit : int = 300,
+    n_outliers_to_omit : int = 0,
 ) -> Tuple[pd.DataFrame, np.ndarray, np.ndarray, PCA]:
     """
     Convenience: run PCA on the *full* df[emb_col], attach pca_x/pca_y,
@@ -446,21 +446,13 @@ def pca_full_markers_pipeline(
 
 if __name__ == "__main__":
     # 1) Load full dataset
-    df = load_parquet("dataset_no_chunk.parquet")
+    df = load_parquet("m-player+team_asr-corr_mdl-openai-oai_emb3_ck-t512-o256.parquet")
 
 
     # 2) Run PCA on the FULL dataset (single place)
     df_pca, X_pca, evr, pca = run_pca_and_attach(
         df,
         emb_col="embedding",
-        n_components=2,
-        random_state=42,
-        x_col="pca_x",
-        y_col="pca_y",
-    )
-    df_pca_masked, X_pca_masked, evr_masked, pca_masked = run_pca_and_attach(
-        df,
-        emb_col="embedding_masked",
         n_components=2,
         random_state=42,
         x_col="pca_x",
@@ -484,17 +476,6 @@ if __name__ == "__main__":
         show=True,
     )
     print("Saved: pca_half_pies_by_teams.png")
-    pca_half_markers_pipeline(
-        df_pca_masked,
-        left_col="team1_name",
-        right_col="team2_name",
-        legend_top_n=16,
-        radius_factor=0.0125,
-        cmap_name="tab20",
-        save_path="pca_half_pies_by_teams.png",
-        show=True,
-    )
-    print("Saved: pca_half_pies_by_teams.png")
 
     # (B1) Full markers — categorical coloring (e.g. by patch)
     pca_full_markers_pipeline(
@@ -509,21 +490,9 @@ if __name__ == "__main__":
     )
     print("Saved: pca_by_patch_categorical.png")
 
-    pca_full_markers_pipeline(
-        df_pca_masked,
-        color_cols="year",
-        legend_top_n=10,
-        radius_factor=0.0125,
-        cmap_name="tab20",
-        save_path="pca_by_patch_categorical.png",
-        show=True,
-        continuous=False,
-    )
-    print("Saved: pca_by_patch_categorical.png")
-
     # (B2) Full markers — continuous gradient coloring (e.g. by gamelength)
     pca_full_markers_pipeline(
-        df_pca_masked,
+        df_pca,
         color_cols="gamelength",
         legend_top_n=10,
         radius_factor=0.0125,
@@ -534,7 +503,7 @@ if __name__ == "__main__":
     )
     print("Saved: pca_by_gamelength_continuous.png")
 
-    outliers, centroid = find_pca_outliers(df_pca_masked, top_n=5)
+    outliers, centroid = find_pca_outliers(df_pca, top_n=5)
 
     print("PCA centroid:\n", centroid)
     print("\nTop 5 farthest rows:")
