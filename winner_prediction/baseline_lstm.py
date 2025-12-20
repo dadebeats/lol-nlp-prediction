@@ -7,10 +7,16 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 import argparse
+from sklearn.decomposition import PCA
+import matplotlib
+from random_utils.visualization import save_curves
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 
 parser = argparse.ArgumentParser(description="Train LSTM on LoL match history sequences")
-parser.add_argument("--dataset", type=str, default="dataset.parquet", help="Path to dataset parquet file")
-parser.add_argument("--feature_fn", type=str, default="both", choices=["embedding", "outcome", "both"],
+parser.add_argument("--dataset", type=str, default="m-player+team_asr-corr_mdl-openai-oai_emb3_ck-t512-o256.parquet",
+                    help="Path to dataset parquet file")
+parser.add_argument("--feature_fn", type=str, default="embedding", choices=["embedding", "outcome", "both", "target"],
                     help="Which feature function to use")
 parser.add_argument("--k", type=int, default=8, help="Number of history matches per team")
 parser.add_argument("--min_history", type=int, default=4, help="Minimum history required for a sample")
@@ -18,12 +24,51 @@ parser.add_argument("--hidden_dim", type=int, default=128, help="Hidden dimensio
 parser.add_argument("--num_layers", type=int, default=2, help="Number of LSTM layers")
 parser.add_argument("--dropout", type=float, default=0.2, help="Dropout rate in LSTM")
 parser.add_argument("--bidirectional", action="store_true", help="Use bidirectional LSTM")
-parser.add_argument("--epochs", type=int, default=10, help="Number of training epochs")
+parser.add_argument("--epochs", type=int, default=30, help="Number of training epochs")
 parser.add_argument("--batch_size", type=int, default=64, help="Batch size for training")
 parser.add_argument("--lr", type=float, default=3e-4, help="Learning rate")
 parser.add_argument("--weight_decay", type=float, default=1e-4, help="Weight decay for AdamW")
 parser.add_argument("--pooling", type=str, default="last", choices=["last", "mean"], help="LSTM pooling mode")
-parser.add_argument("--target_col", type=str, default="team1_kills", choices=["team1_result", "team1_kills", "kill_diff", "kill_total"],)
+parser.add_argument("--target_col", type=str, default="team1_result",
+                    choices=["team1_result", "team1_kills", "gamelength", "kill_total"], )
+parser.add_argument(
+    "--pca_dim",
+    type=int,
+    default=0,
+    help="If > 0, apply PCA to the embedding column to this dimensionality before building the dataset.",
+)
+parser.add_argument("--runs", type=int, default=1, help="How many times to run full training.")
+
+
+def apply_pca_to_embeddings(
+        df: pd.DataFrame,
+        emb_col: str = "embedding",
+        n_components: int = 0,
+) -> pd.DataFrame:
+    """
+    If n_components > 0, fit PCA on the entire df[emb_col] (assumed vector-like)
+    and overwrite that column with reduced-dim embeddings.
+
+    If n_components <= 0, returns df unchanged.
+    """
+    if n_components is None or n_components <= 0:
+        return df
+
+    # Stack embeddings into (N, D)
+    emb_mat = np.vstack(df[emb_col].to_numpy())  # each cell is list/np.array
+
+    pca = PCA(n_components=n_components, random_state=42)
+    emb_reduced = pca.fit_transform(emb_mat).astype(np.float32)  # (N, n_components)
+
+    # Write back: each row gets a 1D np.array of length n_components
+    df = df.copy()
+    df[emb_col] = list(emb_reduced)
+
+    print(
+        f"🔎 PCA applied on '{emb_col}': original_dim={emb_mat.shape[1]}, "
+        f"new_dim={n_components}, explained_var={pca.explained_variance_ratio_.sum() * 100:.2f}%"
+    )
+    return df
 
 
 # ---------- Helpers
@@ -83,11 +128,13 @@ def _as_tuple_roster(x) -> Tuple[str, ...]:
     # unknown type -> cast to string
     return (str(x),)
 
+
 def _ensure_datetime(df: pd.DataFrame, col: str = "date") -> pd.DataFrame:
     if not np.issubdtype(df[col].dtype, np.datetime64):
         df = df.copy()
         df[col] = pd.to_datetime(df[col], utc=True, errors="coerce")
     return df
+
 
 def _pov_result(row: pd.Series, pov_side: str) -> int:
     """
@@ -97,14 +144,17 @@ def _pov_result(row: pd.Series, pov_side: str) -> int:
     r = int(row["team1_result"])
     return r if pov_side == "team1" else 1 - r
 
+
 def _team_and_roster(row: pd.Series, pov_side: str) -> Tuple[str, Tuple[str, ...]]:
     if pov_side == "team1":
         return row["team1_name"], _as_tuple_roster(row["team1_players"])
     else:
         return row["team2_name"], _as_tuple_roster(row["team2_players"])
 
+
 def _other_side(side: str) -> str:
     return "team2" if side == "team1" else "team1"
+
 
 # ---------- Index builder
 
@@ -173,7 +223,7 @@ def embedding_feature_fn(row: pd.Series, team_name: str) -> np.ndarray:
     else:
         raise ValueError(f"Team name {team_name} not found in row.")
 
-    emb = np.array(row["embedding_masked"], dtype=np.float32)
+    emb = np.array(row["embedding"], dtype=np.float32)
 
     return np.concatenate([
         np.array([team_is_team1], dtype=np.float32),
@@ -206,13 +256,49 @@ def both_feature_fn(row: pd.Series, team_name: str) -> np.ndarray:
     else:
         raise ValueError(f"Invalid team name: {team_name}")
 
-    embedding = np.array(row["embedding_masked"], dtype=np.float32)
+    embedding = np.array(row["embedding"], dtype=np.float32)
     pov_win = float(_pov_result(row, pov_side))
 
     return np.concatenate([
         np.array([team_is_team1, pov_win], dtype=np.float32),
         embedding
     ])
+
+def target_feature_fn(row: pd.Series, team_name: str, target_col: str) -> np.ndarray:
+    """
+    Baseline for arbitrary target column.
+    Returns [team_is_team1, pov_target_value].
+
+    pov_target_value is:
+        - row[target_col]      if POV = team1
+        - row[target_col for team2] if target is symmetric
+        - row[target_col]      if target is a team1-based metric (like kill_diff, kill_total)
+    """
+    # side indicator
+    if team_name == row["team1_name"]:
+        team_is_team1 = 1.0
+        pov_val = float(row[target_col])
+    elif team_name == row["team2_name"]:
+        team_is_team1 = 0.0
+
+        # --- RULES FOR HOW TO MAP TARGETS ---
+        if target_col == "team1_result":
+            pov_val = 1.0 - float(row[target_col])
+        elif target_col == "team1_kills":
+            pov_val = float(row["team2_kills"])
+        elif target_col == "kill_diff":
+            pov_val = -float(row["kill_diff"])
+        elif target_col == "kill_total":
+            pov_val = float(row["kill_total"])
+        elif target_col == "gamelength":
+            pov_val = float(row["gamelength"])
+        else:
+            raise ValueError(f"Unsupported target_col={target_col}")
+    else:
+        raise ValueError(f"Invalid team name in row.")
+
+    return np.array([pov_val], dtype=np.float32)
+
 
 # ---------- Dataset builder
 
