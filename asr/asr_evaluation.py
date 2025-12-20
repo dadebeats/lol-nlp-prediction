@@ -4,7 +4,7 @@ from bert_score import score as bertscore
 import pandas as pd
 
 # ---- Load ----
-asr_dataset = pd.read_json("asr/asr_error_correction_devset_with_newfix.jsonl", lines=True)
+asr_dataset = pd.read_json("asr/asr_error_correction_devset_corrected.jsonl", lines=True)
 asr_dataset = asr_dataset.fillna("").astype(str)
 asr_dataset = asr_dataset.applymap(lambda x: x.lower() if isinstance(x, str) else x)
 
