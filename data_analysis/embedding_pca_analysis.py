@@ -1,5 +1,3 @@
-# pca_halfpies.py
-
 from __future__ import annotations
 import pandas as pd
 import numpy as np
@@ -78,7 +76,7 @@ def run_pca_and_attach(
     random_state: Optional[int] = 42,
     x_col: str = "pca_x",
     y_col: str = "pca_y",
-    n_outliers_to_omit : int = 0,
+    n_outliers_to_omit: int = 25,
 ) -> Tuple[pd.DataFrame, np.ndarray, np.ndarray, PCA]:
     """
     Convenience: run PCA on the *full* df[emb_col], attach pca_x/pca_y,
@@ -86,8 +84,8 @@ def run_pca_and_attach(
     """
     X = stack_embeddings(df, emb_col=emb_col)
     X_pca, evr, pca_obj = compute_pca_matrix(X, n_components=n_components, random_state=random_state)
-    print(f"Explained variance ratio (PC1, PC2): {evr}")
-    print(f"Total explained variance by first 2 PCs: {evr[:2].sum() * 100:.2f}%")
+    print(f"Explained variance ratio (PC1, PC2.. PCN): {evr}")
+    print(f"Total explained variance by first {n_components} PCs: {evr[:n_components].sum() * 100:.2f}%")
 
     df_pca = attach_pca_columns(df, X_pca, x_col=x_col, y_col=y_col)
     outliers, centroid = find_pca_outliers(df_pca, top_n=len(df_pca))
@@ -447,18 +445,20 @@ def pca_full_markers_pipeline(
 if __name__ == "__main__":
     # 1) Load full dataset
     df = load_parquet("m-player+team_asr-corr_mdl-openai-oai_emb3_ck-t512-o256.parquet")
-
-
+    #df = load_parquet("dataset.parquet")
+    n_components = 2
     # 2) Run PCA on the FULL dataset (single place)
     df_pca, X_pca, evr, pca = run_pca_and_attach(
         df,
         emb_col="embedding",
-        n_components=2,
+        n_components=n_components,
         random_state=42,
         x_col="pca_x",
         y_col="pca_y",
     )
 
+    print("DEBUG n_components =", n_components)
+    print("DEBUG len(evr) =", len(evr))
 
     # 3) Any sampling / filtering is on df_pca (PCA is global)
 
@@ -476,8 +476,31 @@ if __name__ == "__main__":
         show=True,
     )
     print("Saved: pca_half_pies_by_teams.png")
+    pca_half_markers_pipeline(
+        df_pca,
+        left_col="team1_name",
+        right_col="team2_name",
+        legend_top_n=16,
+        radius_factor=0.0125,
+        cmap_name="tab20",
+        save_path="pca_half_pies_by_teams.png",
+        show=True,
+    )
+    print("Saved: pca_half_pies_by_teams.png")
 
     # (B1) Full markers — categorical coloring (e.g. by patch)
+    pca_full_markers_pipeline(
+        df_pca,
+        color_cols="year",
+        legend_top_n=10,
+        radius_factor=0.0125,
+        cmap_name="tab20",
+        save_path="pca_by_patch_categorical.png",
+        show=True,
+        continuous=False,
+    )
+    print("Saved: pca_by_patch_categorical.png")
+
     pca_full_markers_pipeline(
         df_pca,
         color_cols="year",

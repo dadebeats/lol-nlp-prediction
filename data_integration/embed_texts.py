@@ -139,13 +139,25 @@ class EmbeddingFactory:
         return np.vstack(vecs) if vecs else np.zeros((0,))
 
     @staticmethod
-    def _chunk_by_tokens_openai(text: str):
-        chunk1 = text[:32000]
-        chunk2 = text[32000:]
-        if chunk2:
-            return [chunk1, chunk2], [len(chunk1), len(chunk2)]
-        else:
-            return [chunk1], [len(chunk1)]
+    def _chunk_by_tokens_openai(text: str, chunk_size: int = 28000):
+        """
+        Split text into chunks of at most `chunk_size` characters.
+        Returns:
+            chunks:  list[str]
+            lengths: list[int]
+        """
+        if not text:
+            return [""], [0]
+
+        chunks = []
+        lengths = []
+
+        for i in range(0, len(text), chunk_size):
+            chunk = text[i:i + chunk_size]
+            chunks.append(chunk)
+            lengths.append(len(chunk))
+
+        return chunks, lengths
 
 
     def _embed_texts_openai(self, texts: List[str]) -> np.ndarray:
