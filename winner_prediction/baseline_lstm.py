@@ -218,8 +218,8 @@ def both_feature_fn(row: pd.Series, team_name: str) -> np.ndarray:
 
 def build_sequence_dataset(
     df: pd.DataFrame,
-    k_history: int = 10,
-    min_history: int = 1,  # require at least this many; else skip sample
+    k_history: int = 8,
+    min_history: int = 4,  # require at least this many; else skip sample
     pad_to_k: bool = True,  # left-pad to fixed length if shorter than k
     feature_fn: Callable[[pd.Series, str], np.ndarray] = embedding_feature_fn,
     target_column: str = "team1_result",
@@ -319,25 +319,90 @@ def build_sequence_dataset(
     out = {"X": X, "y": y, "meta": samples_meta, "k_history": k_history}
     return out
 
+def run_epoch(
+    model: nn.Module,
+    loader: DataLoader,
+    criterion: nn.Module,
+    optimizer: Optional[optim.Optimizer],
+    device: torch.device,
+    is_classification: bool
+) -> Tuple[float, float]:
+    train = optimizer is not None
+    model.train(train)
+
+    total_loss = 0.0
+    metric_sum = 0.0
+    n = 0
+
+    for xb, yb in loader:
+        xb = xb.to(device)
+        yb = yb.to(device)
+
+        logits = model(xb)
+        loss = criterion(logits, yb)
+
+        if train:
+            optimizer.zero_grad(set_to_none=True)
+            loss.backward()
+            nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+            optimizer.step()
+
+        bs = xb.size(0)
+        total_loss += loss.item() * bs
+        n += bs
+
+        if is_classification:
+            preds = (logits.sigmoid() >= 0.5).long()
+            metric_sum += (preds == yb.long()).sum().item()  # correct
+        else:
+            metric_sum += (logits - yb).abs().sum().item()  # MAE sum
+
+    avg_loss = total_loss / max(n, 1)
+    avg_metric = metric_sum / max(n, 1)  # accuracy or MAE
+    return avg_loss, avg_metric
+
+class SeqDataset(Dataset):
+    def __init__(self, X_arr: np.ndarray, y_arr: np.ndarray):
+        self.X = torch.from_numpy(X_arr)
+        self.y = torch.from_numpy(y_arr)
+
+    def __len__(self) -> int:
+        return int(self.X.shape[0])
+
+    def __getitem__(self, i: int):
+        return self.X[i], self.y[i]
 
 if __name__ == "__main__":
     args = parser.parse_args()
-    # --- Select feature function
-    feature_map = {
-        "embedding": embedding_feature_fn,
-        "outcome": outcome_feature_fn,
-        "both": both_feature_fn
-    }
-    feat_fn = feature_map[args.feature_fn]
 
-    print(f"⚙️ Using feature_fn={args.feature_fn}, k={args.k}, hidden_dim={args.hidden_dim}, layers={args.num_layers}")
-    print(f"⚙️ Predicting for columns={args.target_col}")
+    # --- feature function selection (late-bind args.target_col safely)
+    if args.feature_fn == "embedding":
+        feat_fn = embedding_feature_fn
+    elif args.feature_fn == "outcome":
+        feat_fn = outcome_feature_fn
+    elif args.feature_fn == "both":
+        feat_fn = both_feature_fn
+    elif args.feature_fn == "target":
+        feat_fn = lambda row, team: target_feature_fn(row, team, args.target_col)
+    else:
+        raise ValueError(f"Unknown feature_fn={args.feature_fn}")
 
-    df = pd.read_parquet("dataset.parquet")
-    df["kill_diff"] = df["team1_kills"] - df["team2_kills"]
+    print(
+        f"⚙️ Using feature_fn={args.feature_fn}, k={args.k}, "
+        f"hidden_dim={args.hidden_dim}, layers={args.num_layers}, pooling={args.pooling}, "
+        f"bidirectional={args.bidirectional}"
+    )
+    print(f"⚙️ Predicting target_col={args.target_col}")
+
+    # --- load + enrich
+    df = pd.read_parquet(args.dataset)
+    df["kill_diff"] = (df["team1_kills"] - df["team2_kills"]).abs()
     df["kill_total"] = df["team1_kills"] + df["team2_kills"]
-    #if args.target_col in df.columns:
-    #    raise AssertionError("Predicting for value that's present in the data as a feature")
+
+    # --- optional PCA
+    df = apply_pca_to_embeddings(df, emb_col="embedding", n_components=args.pca_dim)
+
+    # --- dataset build (chronological by builder)
     data = build_sequence_dataset(
         df,
         k_history=args.k,
@@ -345,131 +410,139 @@ if __name__ == "__main__":
         pad_to_k=True,
         feature_fn=feat_fn,
         return_concat=True,
-        target_column=args.target_col
+        target_column=args.target_col,
     )
 
-    X = data["X"]  # (N, 2*k, D)
-    y = data["y"]  # (N,)
-    print("Samples:", X.shape, "Targets:", y.shape)
+    X = data["X"].astype(np.float32)
+    y_raw = data["y"]
+    print("Samples:", X.shape, "Targets:", y_raw.shape)
     print("First sample meta:", data["meta"][0])
 
-    X_np = data["X"].astype("float32")  # ensure float32
     is_classification = (args.target_col == "team1_result")
-    y_np = data["y"].astype("float32")
+    y = y_raw.astype(np.float32)
 
-    # Train/val split (chronological)
-    N = X_np.shape[0]
+    # --- chronological split
+    N = X.shape[0]
     split = int(0.8 * N)
-    train_idx = np.arange(split)
-    val_idx = np.arange(split, N)
-    # perm = np.random.RandomState(42).permutation(N)
-    # split = int(0.8 * N)
-    # train_idx, val_idx = perm[:split], perm[split:]
+    X_train, y_train = X[:split], y[:split]
+    X_val, y_val = X[split:], y[split:]
 
-    X_train, y_train = X_np[train_idx], y_np[train_idx]
-    X_val, y_val = X_np[val_idx], y_np[val_idx]
+    # --- data loaders
+    train_loader = DataLoader(
+        SeqDataset(X_train, y_train),
+        batch_size=args.batch_size,
+        shuffle=True,
+        drop_last=False,
+    )
+    val_loader = DataLoader(
+        SeqDataset(X_val, y_val),
+        batch_size=args.batch_size * 2,
+        shuffle=False,
+        drop_last=False,
+    )
 
-
-    class SeqDataset(Dataset):
-        def __init__(self, X, y):
-            self.X = torch.from_numpy(X)
-            self.y = torch.from_numpy(y)
-
-        def __len__(self): return self.X.shape[0]
-
-        def __getitem__(self, i): return self.X[i], self.y[i]
-
-
-    train_loader = DataLoader(SeqDataset(X_train, y_train), batch_size=args.batch_size, shuffle=True)
-    val_loader = DataLoader(SeqDataset(X_val, y_val), batch_size=args.batch_size * 2, shuffle=False)
-
+    # --- device + model
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
     model = LSTMClassifier(
-        input_dim=X_np.shape[2],
+        input_dim=X.shape[2],
         hidden_dim=args.hidden_dim,
         num_layers=args.num_layers,
         dropout=args.dropout,
         bidirectional=args.bidirectional,
-        pooling=args.pooling
+        pooling=args.pooling,
     ).to(device)
 
+    # --- loss
     if is_classification:
-        pos = (y_train == 1).sum()
-        neg = (y_train == 0).sum()
-        pos_weight = torch.tensor([(neg / max(pos, 1))], dtype=torch.float32, device=device)
+        pos = int((y_train == 1).sum())
+        neg = int((y_train == 0).sum())
+        pos_weight = torch.tensor([neg / max(pos, 1)], dtype=torch.float32, device=device)
         criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
+        scheduler_mode = "max"
     else:
         criterion = nn.MSELoss()
-
+        scheduler_mode = "max"  # we still "maximize" a transformed metric below
 
     optimizer = optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
-    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode="max", factor=0.5, patience=2)
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(
+        optimizer,
+        mode=scheduler_mode,
+        factor=0.9,
+        patience=5,
+        min_lr=1e-5,
+    )
 
+    best_metrics = []
+    for run in range(args.runs):
+        best_val_metric = -np.inf
+        train_losses, val_losses = [], []
+        train_metrics, val_metrics = [], []
 
-    def run_epoch(loader, train=True):
-        model.train(train)
-        total_loss = 0.0
-        metric_total = 0.0
-        total_batches = 0
+        for epoch in range(1, args.epochs + 1):
+            current_lr = optimizer.param_groups[0]["lr"]
 
-        for xb, yb in loader:
-            xb, yb = xb.to(device), yb.to(device)
+            tr_loss, tr_metric = run_epoch(
+                model=model,
+                loader=train_loader,
+                criterion=criterion,
+                optimizer=optimizer,
+                device=device,
+                is_classification=is_classification,
+            )
+            va_loss, va_metric = run_epoch(
+                model=model,
+                loader=val_loader,
+                criterion=criterion,
+                optimizer=None,
+                device=device,
+                is_classification=is_classification,
+            )
 
-            logits = model(xb)
+            train_losses.append(tr_loss)
+            val_losses.append(va_loss)
+            train_metrics.append(tr_metric)
+            val_metrics.append(va_metric)
 
-            # --- LOSS ---
+            # scheduler + selection metric: maximize accuracy; minimize MAE
+            sched_metric = va_metric if is_classification else -va_metric
+
             if is_classification:
-                loss = criterion(logits, yb)
+                print(
+                    f"Run {run+1}/{args.runs} | Epoch {epoch:03d} | "
+                    f"train loss {tr_loss:.4f} acc {tr_metric:.3f} | "
+                    f"val loss {va_loss:.4f} acc {va_metric:.3f} | lr={current_lr:.6f}"
+                )
             else:
-                loss = criterion(logits, yb)  # regression raw
+                print(
+                    f"Run {run+1}/{args.runs} | Epoch {epoch:03d} | "
+                    f"train loss {tr_loss:.4f} MAE {tr_metric:.3f} | "
+                    f"val loss {va_loss:.4f} MAE {va_metric:.3f} | lr={current_lr:.6f}"
+                )
 
-            if train:
-                optimizer.zero_grad(set_to_none=True)
-                loss.backward()
-                nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
-                optimizer.step()
+            scheduler.step(sched_metric)
 
-            total_loss += loss.item() * xb.size(0)
-            batch_size = xb.size(0)
+            if sched_metric > best_val_metric:
+                best_val_metric = sched_metric
+                torch.save(model.state_dict(), f"lstm_best_{args.feature_fn}_{args.target_col}.pt")
 
-            # --- METRIC ---
-            if is_classification:
-                preds = (logits.sigmoid() >= 0.5).long()
-                metric_total += (preds == yb.long()).sum().item()
-            else:
-                # regression metric = MAE
-                metric_total += (logits - yb).abs().sum().item()
+        epochs_arr = np.arange(1, args.epochs + 1)
+        save_curves(
+            epochs=epochs_arr,
+            train_losses=train_losses,
+            val_losses=val_losses,
+            train_metrics=train_metrics,
+            val_metrics=val_metrics,
+            is_classification=is_classification,
+            feature_fn=args.feature_fn,
+            target_col=args.target_col,
 
-            total_batches += batch_size
+        )
 
-        avg_loss = total_loss / total_batches
+        print(f"✅ Run {run+1}/{args.runs} complete. Best val score: {best_val_metric:.3f}")
+        best_metrics.append(best_val_metric)
 
-        if is_classification:
-            avg_metric = metric_total / total_batches  # accuracy
-        else:
-            avg_metric = metric_total / total_batches  # MAE
+    vals = np.array(best_metrics, dtype=float)
+    mean = float(vals.mean())
+    std = float(vals.std(ddof=1)) if len(vals) > 1 else 0.0
+    print(f"mean = {mean:.6f}, std = {std:.6f}")
 
-        return avg_loss, avg_metric
-
-
-    best_val_metric = - np.inf
-    for epoch in range(1, args.epochs + 1):
-        tr_loss, tr_metric = run_epoch(train_loader, train=True)
-        va_loss, va_metric = run_epoch(val_loader, train=False)
-
-        if is_classification:
-            print(
-                f"Epoch {epoch:03d} | train loss {tr_loss:.4f} acc {tr_metric:.3f} | val loss {va_loss:.4f} acc {va_metric:.3f}")
-        else:
-            print(
-                f"Epoch {epoch:03d} | train loss {tr_loss:.4f} MAE {tr_metric:.3f} | val loss {va_loss:.4f} MAE {va_metric:.3f}")
-            # flip because MAE is better when smaller, compared to accuracy
-            va_metric = -va_metric
-
-        scheduler.step(va_metric)
-        if va_metric > best_val_metric:
-            best_val_metric = va_metric
-            torch.save(model.state_dict(), f"lstm_best_{args.feature_fn}.pt")
-
-    print(f"✅ Training complete. Best val acc: {best_val_metric:.3f}")
