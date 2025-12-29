@@ -1,3 +1,4 @@
+# Pre-defined youtube playlist from which we donwload the commentary data
 league_to_youtube_channel_mapping = {
     "Worlds_24_playoffs": "https://www.youtube.com/watch?v=E9uM_rX5tU8&list=PLVgS_BIOY01x5-oeFIMWonhzncNtH5lt8",
     "Worlds_24": "https://www.youtube.com/watch?v=QcdFZ0-yaDs&list=PLVgS_BIOY01wd2KlxZFhZYyNc2VUR88b2",

@@ -1,3 +1,4 @@
+# Script which inplace converts all *.en.srt files to *.en.plain.txt (srt to plain text)
 import os
 import pysrt
 
