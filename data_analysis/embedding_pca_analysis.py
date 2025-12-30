@@ -8,7 +8,15 @@ from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 from matplotlib.patches import Wedge, Patch, Circle
 
-def find_pca_outliers(df_pca, x_col="pca_x", y_col="pca_y", top_n=5):
+def find_pca_outliers(df_pca: pd.DataFrame, x_col="pca_x", y_col="pca_y", top_n=5) -> Tuple[pd.DataFrame, np.ndarray]:
+    """
+    Finds data points which lie the furthest from the centroid in the PCA space. Assumes PCA already attached to df.
+    :param df_pca:
+    :param x_col:
+    :param y_col:
+    :param top_n:
+    :return:
+    """
     # Extract PCA coordinates
     X = df_pca[[x_col, y_col]].to_numpy()
 
@@ -76,7 +84,7 @@ def run_pca_and_attach(
     random_state: Optional[int] = 42,
     x_col: str = "pca_x",
     y_col: str = "pca_y",
-    n_outliers_to_omit: int = 25,
+    n_outliers_to_omit: int = 50,
 ) -> Tuple[pd.DataFrame, np.ndarray, np.ndarray, PCA]:
     """
     Convenience: run PCA on the *full* df[emb_col], attach pca_x/pca_y,
@@ -443,11 +451,19 @@ def pca_full_markers_pipeline(
     return fig, ax
 
 if __name__ == "__main__":
-    # 1) Load full dataset
-    df = load_parquet("m-player+team_asr-corr_mdl-openai-oai_emb3_ck-t512-o256.parquet")
-    #df = load_parquet("dataset.parquet")
+    # Load the embedded dataset (must contain an 'embedding' column and match metadata).
+    df = load_parquet("m-player+team_asr-corr_mdl-hf-minilm_ck-t512-o256_pool-max.parquet")
+
+    # Quick derived features for optional coloring/filtering in PCA plots.
+    df["total_kills"] = df["team1_kills"] + df["team2_kills"]
+    df["kill_diff_abs"] = (df["team1_kills"] - df["team2_kills"]).abs()
+
+    # Optional: restrict to years included in the analysis (keeps PCA space consistent).
+    # ~ Pretend the year 2025 does not exist in our data.
+    df = df[df["year"] < 2025].copy()
+
+    # Run PCA ONCE on the full dataset, then do any filtering on the resulting df_pca.
     n_components = 2
-    # 2) Run PCA on the FULL dataset (single place)
     df_pca, X_pca, evr, pca = run_pca_and_attach(
         df,
         emb_col="embedding",
@@ -455,27 +471,14 @@ if __name__ == "__main__":
         random_state=42,
         x_col="pca_x",
         y_col="pca_y",
+        n_outliers_to_omit=300,  # drop farthest points to improve plot readability
     )
 
-    print("DEBUG n_components =", n_components)
-    print("DEBUG len(evr) =", len(evr))
+    # Explained variance diagnostics (how much of the embedding variance PCA captures).
+    print(f"Explained variance ratio: {evr}")
+    print(f"Total explained variance (first {n_components} PCs): {evr[:n_components].sum() * 100:.2f}%")
 
-    # 3) Any sampling / filtering is on df_pca (PCA is global)
-
-    # Example: just a random sample for plots
-
-    # (A) Half markers by two columns — team vs team
-    pca_half_markers_pipeline(
-        df_pca,
-        left_col="team1_name",
-        right_col="team2_name",
-        legend_top_n=16,
-        radius_factor=0.0125,
-        cmap_name="tab20",
-        save_path="pca_half_pies_by_teams.png",
-        show=True,
-    )
-    print("Saved: pca_half_pies_by_teams.png")
+    # --- Plot A: team vs team half-markers (left = team1, right = team2) ---
     pca_half_markers_pipeline(
         df_pca,
         left_col="team1_name",
@@ -488,34 +491,38 @@ if __name__ == "__main__":
     )
     print("Saved: pca_half_pies_by_teams.png")
 
-    # (B1) Full markers — categorical coloring (e.g. by patch)
+    # --- Plot B1: categorical coloring (example: year) ---
     pca_full_markers_pipeline(
         df_pca,
         color_cols="year",
         legend_top_n=10,
         radius_factor=0.0125,
         cmap_name="tab20",
-        save_path="pca_by_patch_categorical.png",
+        save_path="pca_by_year_categorical.png",
         show=True,
         continuous=False,
     )
-    print("Saved: pca_by_patch_categorical.png")
+    print("Saved: pca_by_year_categorical.png")
 
+    # --- Plot B2: continuous coloring (example: absolute kill difference) ---
+    # Filter here affects only which points are shown, not the PCA itself.
+    df_kd = df_pca[(df_pca["kill_diff_abs"] > 16) | (df_pca["kill_diff_abs"] < 6)]
     pca_full_markers_pipeline(
-        df_pca,
-        color_cols="year",
+        df_kd,
+        color_cols="kill_diff_abs",
         legend_top_n=10,
         radius_factor=0.0125,
-        cmap_name="tab20",
-        save_path="pca_by_patch_categorical.png",
+        continuous=True,
+        continuous_cmap="viridis",
+        save_path="pca_by_kill_diff_abs_continuous.png",
         show=True,
-        continuous=False,
     )
-    print("Saved: pca_by_patch_categorical.png")
+    print("Saved: pca_by_kill_diff_abs_continuous.png")
 
-    # (B2) Full markers — continuous gradient coloring (e.g. by gamelength)
+    # --- Plot B3: continuous coloring (example: game length) ---
+    df_len = df_pca[(df_pca["gamelength"] > 2200) | (df_pca["gamelength"] < 1600)]
     pca_full_markers_pipeline(
-        df_pca,
+        df_len,
         color_cols="gamelength",
         legend_top_n=10,
         radius_factor=0.0125,
@@ -526,8 +533,9 @@ if __name__ == "__main__":
     )
     print("Saved: pca_by_gamelength_continuous.png")
 
+    # --- Inspect PCA outliers (farthest points from the PCA centroid) ---
     outliers, centroid = find_pca_outliers(df_pca, top_n=5)
-
-    print("PCA centroid:\n", centroid)
+    print("PCA centroid:", centroid)
     print("\nTop 5 farthest rows:")
     print(outliers[["pca_x", "pca_y", "pca_distance_from_mean", "text"]])
+
