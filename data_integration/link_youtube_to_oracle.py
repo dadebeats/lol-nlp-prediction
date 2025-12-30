@@ -32,8 +32,12 @@ team_mapping = {
 }
 
 
-def filename_to_match_multiindex(filename):
-    # Example: "TeamA vs TeamB - Game 2｜something"
+def filename_to_match_multiindex(filename: str) -> tuple:
+    """
+    Transcript filepath to a tuple of (team1, team2, game_order, disambiguation_part) == match indexing.
+    :param filename:
+    :return:
+    """
 
     name_first_part = filename.split("｜")[0]
     team_vs = name_first_part.split("-")[0]
@@ -53,7 +57,14 @@ def filename_to_match_multiindex(filename):
     return team1, team2, game_order, disambiguation_part
 
 
-def get_linked_dataframe(year, league, split):
+def get_linked_dataframe(year: int, league: str, split:str) -> pd.DataFrame:
+    """
+    Outputs a dataframe where we combine the text data with the metadata from the Oracle Elixir dataset.
+    :param year:
+    :param league:
+    :param split:
+    :return:
+    """
     folder_path = f"commentary_data/{league}_{year}_{split.lower()}"
     # Dictionary to store filename: content
     commentary_data = {}
@@ -124,7 +135,6 @@ if __name__ == "__main__":
 
     splits = ["Spring", "Summer"]
     league = "LPL"
-    # ________----_____
     dfs = []
     for year, split in  list(product(years, splits)) + [(25, "Winter")]:
         dataset_yearly = get_linked_dataframe(year, league, split)
@@ -132,5 +142,5 @@ if __name__ == "__main__":
 
     dataset = pd.concat(dfs)
     dataset = dataset.set_index("gameid")
-    dataset.to_csv("dataset.csv")
+    dataset.to_csv("dataset_filtered.csv")
 

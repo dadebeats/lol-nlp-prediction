@@ -1,11 +1,15 @@
 import pandas as pd
 
-
-def extract_match_metadata(df):
+def extract_match_metadata(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Preprocess raw oracle elixir data to extract match metadata and fit our task. (Mostly unpacking)
+    :param df:
+    :return:
+    """
     # Filter to one match worth of rows
     matches = []
     for gameid, match_df in df.groupby("gameid"):
-        # Ignore incomplete matches if you want
+        # Optionally ignore incomplete matches
         # match_df = match_df[match_df['datacompleteness'] == 'complete']
         # Basic metadata (shared across all rows)
         meta = {
@@ -20,7 +24,7 @@ def extract_match_metadata(df):
         }
         # Split by side
         position_order = ["top", "jng", "mid", "bot", "sup"]
-        teams = match_df[match_df["position"] == "team"]  # team rows have no position
+        teams = match_df[match_df["position"] == "team"]  # team rows have no LoL specific position
         players = match_df[match_df["position"].isin(position_order)]  # player rows have positions
         # Sort players within each side by position order
         sides = teams["side"].unique()
@@ -43,7 +47,7 @@ def extract_match_metadata(df):
             "team1_dragons": team1["dragons"],
             "team2_dragons": team2["dragons"],
             "team1_elders": team1["elders"],
-            "team2_elders": team1["elders"],
+            "team2_elders": team2["elders"],
             "team1_barons": team1["barons"],
             "team2_barons": team2["barons"],
             "team1_towers": team1["towers"],
