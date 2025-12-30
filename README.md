@@ -89,6 +89,52 @@ User can change the embeddings used by changing the dataset to be loaded.
 We do not recommend using scripts in this folder as there would be need to load credit to the OpenAI API and provide
 API key. We provide the outputs the API returned, anyway.
 
+## `winner_prediction/baseline_lstm.py`
+
+This script is the core experimental driver used in Chapters 4 and 5 of the
+thesis. It runs the specified training procedure, reports the best validation
+metric observed in each run, saves the best-performing model, and produces
+training curves.
+
+In its basic form, the script can be executed without parameters
+(`python baseline_lstm.py`), in which case a default configuration is used.
+
+The primary configuration parameters are `--dataset`, which specifies the input
+dataset, and `--optuna_run`, which toggles between standard training and
+hyperparameter optimization mode. When `--optuna_run` is enabled, selected
+hyperparameters are overridden by Optuna-suggested values before the final
+training runs. Trials may also be terminated early via Optuna’s pruning
+mechanism if intermediate performance is poor.
+
+The prediction target is selected via `--target_col`, which supports
+`team1_result`, `team1_kills`, `gamelength`, and `kill_total`.
+The `--feature_fn` parameter controls which feature sets are used as model
+inputs:
+- `embedding`: text embeddings only,
+- `target`: history of the target variable only,
+- `numerical`: numerical match features,
+- `all`: numerical features combined with embeddings,
+- `garbage`: random inputs (random baseline).
+
+For embedding-based configurations, dimensionality can be reduced using PCA via
+the `--pca` parameter.
+
+Training samples are constructed as fixed-length **historical sequences**.
+For each target match, the model receives the previous `k` matches for both
+teams, matched by exact player roster and ordered chronologically, with only
+matches strictly preceding the target included. The `--k` parameter controls
+the maximum history length, while `--min_history` specifies the minimum number
+of historical matches required for both teams for a sample to be included.
+
+To control training stability and variance, the number of epochs is set via
+`--epochs`, and the entire training process can be repeated multiple times using
+`--runs`. Reported results correspond to the mean and standard deviation across
+these independent runs.
+
+Remaining parameters correspond to standard LSTM and optimization
+hyperparameters. Examples of full script invocations with concrete parameter
+settings are provided in the thesis appendix.
+
 ---
 
 ## Technical documentation
@@ -313,3 +359,121 @@ The output is also a JSONL file.
   by users or reviewers.
 - Final extracted events and predictions used in the thesis are provided
   directly in the repository.
+
+
+## `winner_prediction/baseline_lstm.py`
+
+This module implements the full training, evaluation, and reporting pipeline
+used for all LSTM-based baselines in the thesis. It is designed as a single,
+self-contained experiment driver that combines data preparation, model
+training, hyperparameter search, and result logging.
+
+The script is not intended as a reusable library component; instead, it serves
+as an executable experiment specification whose behavior is controlled entirely
+via command-line arguments.
+
+---
+
+### External libraries and dependencies
+
+The implementation relies on the following core libraries:
+
+- **PyTorch** (`torch`, `torch.nn`, `torch.optim`)  
+  Used for defining the LSTM model, loss functions, optimization, and training
+  loops.
+
+- **NumPy**  
+  Used for numerical operations, aggregation of metrics, and deterministic
+  seeding where applicable.
+
+- **Pandas**  
+  Used for loading datasets, manipulating tabular match data, and exporting
+  results.
+
+- **scikit-learn**  
+  Provides PCA for optional embedding dimensionality reduction and utilities
+  for data normalization.
+
+- **Optuna**  
+  Used for automated hyperparameter optimization when `--optuna_run` is
+  enabled, including trial pruning based on intermediate validation results.
+
+- **Matplotlib**  
+  Used to generate and save training and validation curves.
+
+The script assumes that datasets have already been fully preprocessed and are
+available locally in CSV or Parquet format.
+
+---
+
+### High-level execution flow
+
+At a high level, execution proceeds through the following stages:
+
+1. **Argument parsing and configuration**  
+   Command-line arguments are parsed to determine the dataset, target variable,
+   feature configuration, training hyperparameters, and whether Optuna-based
+   optimization is enabled. In Optuna mode, selected arguments are overwritten
+   by trial-specific values.
+
+2. **Dataset loading and preprocessing**  
+   The dataset is loaded using Pandas. Feature preprocessing is applied
+   according to the selected `feature_fn`, including optional PCA projection
+   for embedding features.
+
+3. **Sequence construction**  
+   Match-level rows are converted into fixed-length sequential samples.
+   For each target match, historical matches are retrieved in chronological
+   order, grouped by exact team roster, and truncated or filtered according to
+   `k` and `min_history`. These sequences form the inputs to the LSTM.
+
+4. **Model initialization**  
+   An LSTM-based sequence model is instantiated using the specified architecture
+   parameters (hidden size, number of layers, bidirectionality, pooling
+   strategy). Output heads differ depending on whether the task is classification
+   or regression.
+
+5. **Training and validation loop**  
+   The model is trained for a fixed number of epochs, with validation performed
+   after each epoch. The best-performing model checkpoint is tracked according
+   to the selected validation metric.
+
+6. **Repetition and aggregation**  
+   The entire training procedure can be repeated multiple times (`--runs`) to
+   account for non-determinism. Metrics are aggregated across runs and reported
+   as mean and standard deviation.
+
+7. **Reporting and persistence**  
+   Training curves are saved as figures, and the best model checkpoint is stored
+   to disk. Final performance summaries are printed to standard output.
+
+---
+
+### Hyperparameter optimization flow
+
+When Optuna optimization is enabled:
+
+- A study is created with a user-specified objective metric.
+- Each trial samples a configuration and runs a shortened training loop.
+- Poorly performing trials may be terminated early via pruning.
+- After optimization, the best trial’s parameters are used for the final
+  training runs reported in the thesis.
+
+This mode reuses the same data loading and training logic as standard runs,
+ensuring comparability between optimized and non-optimized experiments.
+
+---
+
+### Design notes
+
+- The script deliberately prioritizes **experiment traceability** over modular
+  abstraction.
+- Data preparation, training, and evaluation are colocated to minimize hidden
+  state across runs.
+- All randomness-sensitive operations are repeated and aggregated rather than
+  relying on a single deterministic seed.
+
+This structure ensures that results reported in the thesis correspond directly
+to explicit, reproducible script invocations.
+
+
