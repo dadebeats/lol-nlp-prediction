@@ -15,31 +15,36 @@ from optuna.trial import Trial
 import json
 
 parser = argparse.ArgumentParser(description="Train LSTM on LoL match history sequences")
+# Data and target parameters
 parser.add_argument("--dataset", type=str, default="m-player+team_asr-corr_mdl-openai-oai_emb3_ck-t512-o256.parquet",
                     help="Path to dataset parquet file")
-parser.add_argument("--feature_fn", type=str, default="embedding", choices=["embedding", "outcome", "both", "target",
-                                                                            "numerical", "all", "garbage"],
+parser.add_argument("--feature_fn", type=str, default="embedding",
+                    choices=["embedding", "target", "numerical", "all", "garbage"],
                     help="Which feature function to use")
+parser.add_argument("--target_col", type=str, default="team1_result",
+                    choices=["team1_result", "team1_kills", "gamelength", "kill_total"], )
+# Run quantity parameters
+parser.add_argument("--epochs", type=int, default=30, help="Number of training epochs")
+parser.add_argument("--runs", type=int, default=1, help="How many times to run full training.")
+# Sequence modeling parameters
 parser.add_argument("--k", type=int, default=8, help="Number of history matches per team")
 parser.add_argument("--min_history", type=int, default=4, help="Minimum history required for a sample")
+# LSTM parameters
 parser.add_argument("--hidden_dim", type=int, default=128, help="Hidden dimension of LSTM")
 parser.add_argument("--num_layers", type=int, default=2, help="Number of LSTM layers")
 parser.add_argument("--dropout", type=float, default=0.2, help="Dropout rate in LSTM")
 parser.add_argument("--bidirectional", action="store_true", help="Use bidirectional LSTM")
-parser.add_argument("--epochs", type=int, default=30, help="Number of training epochs")
 parser.add_argument("--batch_size", type=int, default=64, help="Batch size for training")
 parser.add_argument("--lr", type=float, default=3e-4, help="Learning rate")
 parser.add_argument("--weight_decay", type=float, default=1e-4, help="Weight decay for AdamW")
 parser.add_argument("--pooling", type=str, default="last", choices=["last", "mean"], help="LSTM pooling mode")
-parser.add_argument("--target_col", type=str, default="team1_result",
-                    choices=["team1_result", "team1_kills", "gamelength", "kill_total"], )
+# Preprocessing parameter
 parser.add_argument(
     "--pca",
     type=int,
     default=0,
     help="If > 0, apply PCA to the embedding column to this dimensionality before building the dataset.",
 )
-parser.add_argument("--runs", type=int, default=1, help="How many times to run full training.")
 
 parser.add_argument("--optuna_run", action="store_true", help="Run Optuna hyperparam search before final runs.")
 parser.add_argument("--optuna_trials", type=int, default=30, help="Number of Optuna trials.")
