@@ -1,0 +1,527 @@
+{"row_idx": 0, "match_idx": 557, "date": "2025-01-21T10:23:14+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "EDward Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 1, "match_idx": 558, "date": "2025-01-21T11:16:15+00:00", "team1_name": "EDward Gaming", "team2_name": "ThunderTalk Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 2, "match_idx": 559, "date": "2025-01-21T12:11:42+00:00", "team1_name": "EDward Gaming", "team2_name": "ThunderTalk Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 3, "match_idx": 659, "date": "2025-01-22T11:36:39+00:00", "team1_name": "Team WE", "team2_name": "LGD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 4, "match_idx": 588, "date": "2025-01-23T11:11:52+00:00", "team1_name": "Oh My God", "team2_name": "JD Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 5, "match_idx": 589, "date": "2025-01-23T12:12:51+00:00", "team1_name": "JD Gaming", "team2_name": "Oh My God", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 6, "match_idx": 590, "date": "2025-01-23T12:57:38+00:00", "team1_name": "Oh My God", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 7, "match_idx": 625, "date": "2025-01-24T11:45:17+00:00", "team1_name": "Anyone's Legend", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 8, "match_idx": 626, "date": "2025-01-24T12:49:04+00:00", "team1_name": "Top Esports", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 9, "match_idx": 537, "date": "2025-01-25T06:25:38+00:00", "team1_name": "LNG Esports", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 10, "match_idx": 538, "date": "2025-01-25T07:19:20+00:00", "team1_name": "LNG Esports", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 11, "match_idx": 574, "date": "2025-01-25T09:27:08+00:00", "team1_name": "Invictus Gaming", "team2_name": "Royal Never Give Up", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 12, "match_idx": 575, "date": "2025-01-25T10:29:01+00:00", "team1_name": "Invictus Gaming", "team2_name": "Royal Never Give Up", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 13, "match_idx": 576, "date": "2025-01-25T11:32:50+00:00", "team1_name": "Royal Never Give Up", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 14, "match_idx": 577, "date": "2025-01-25T12:23:54+00:00", "team1_name": "Invictus Gaming", "team2_name": "Royal Never Give Up", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 15, "match_idx": 645, "date": "2025-02-09T09:26:01+00:00", "team1_name": "JD Gaming", "team2_name": "Weibo Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 16, "match_idx": 646, "date": "2025-02-09T10:23:23+00:00", "team1_name": "JD Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 17, "match_idx": 647, "date": "2025-02-09T11:14:45+00:00", "team1_name": "Weibo Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 18, "match_idx": 648, "date": "2025-02-09T12:16:15+00:00", "team1_name": "JD Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 19, "match_idx": 649, "date": "2025-02-09T13:12:03+00:00", "team1_name": "Weibo Gaming", "team2_name": "JD Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 20, "match_idx": 554, "date": "2025-02-11T10:22:07+00:00", "team1_name": "LNG Esports", "team2_name": "EDward Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 21, "match_idx": 555, "date": "2025-02-11T11:20:26+00:00", "team1_name": "LNG Esports", "team2_name": "EDward Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 22, "match_idx": 632, "date": "2025-02-12T09:24:21+00:00", "team1_name": "Ultra Prime", "team2_name": "Oh My God", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 23, "match_idx": 633, "date": "2025-02-12T10:19:49+00:00", "team1_name": "Ultra Prime", "team2_name": "Oh My God", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 24, "match_idx": 634, "date": "2025-02-12T11:19:18+00:00", "team1_name": "Oh My God", "team2_name": "Ultra Prime", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 25, "match_idx": 635, "date": "2025-02-12T12:18:08+00:00", "team1_name": "Oh My God", "team2_name": "Ultra Prime", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 26, "match_idx": 636, "date": "2025-02-12T13:19:29+00:00", "team1_name": "Ultra Prime", "team2_name": "Oh My God", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 27, "match_idx": 545, "date": "2025-02-14T10:16:55+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 28, "match_idx": 547, "date": "2025-02-14T11:12:43+00:00", "team1_name": "Bilibili Gaming", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 29, "match_idx": 549, "date": "2025-02-14T12:03:07+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 30, "match_idx": 550, "date": "2025-02-14T12:53:17+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 31, "match_idx": 561, "date": "2025-02-15T10:26:02+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 32, "match_idx": 562, "date": "2025-02-15T11:09:37+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 33, "match_idx": 627, "date": "2025-02-16T09:24:17+00:00", "team1_name": "Top Esports", "team2_name": "LGD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 34, "match_idx": 628, "date": "2025-02-16T10:21:45+00:00", "team1_name": "LGD Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 35, "match_idx": 629, "date": "2025-02-16T11:10:52+00:00", "team1_name": "LGD Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 36, "match_idx": 595, "date": "2025-02-22T06:13:58+00:00", "team1_name": "JD Gaming", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 37, "match_idx": 596, "date": "2025-02-22T07:12:38+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 38, "match_idx": 597, "date": "2025-02-22T08:08:39+00:00", "team1_name": "JD Gaming", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 39, "match_idx": 598, "date": "2025-02-22T09:10:09+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 40, "match_idx": 609, "date": "2025-02-22T10:33:01+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 41, "match_idx": 610, "date": "2025-02-22T11:25:01+00:00", "team1_name": "Anyone's Legend", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 42, "match_idx": 611, "date": "2025-02-22T12:18:40+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 43, "match_idx": 612, "date": "2025-02-22T14:26:44+00:00", "team1_name": "Anyone's Legend", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 44, "match_idx": 641, "date": "2025-02-23T06:13:55+00:00", "team1_name": "Weibo Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 45, "match_idx": 642, "date": "2025-02-23T07:06:58+00:00", "team1_name": "Weibo Gaming", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 46, "match_idx": 643, "date": "2025-02-23T07:57:04+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 47, "match_idx": 644, "date": "2025-02-23T08:56:35+00:00", "team1_name": "Weibo Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 48, "match_idx": 578, "date": "2025-02-23T10:34:24+00:00", "team1_name": "Invictus Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 49, "match_idx": 579, "date": "2025-02-23T11:40:50+00:00", "team1_name": "Invictus Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 50, "match_idx": 580, "date": "2025-02-23T12:55:40+00:00", "team1_name": "Invictus Gaming", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 51, "match_idx": 581, "date": "2025-02-23T13:47:08+00:00", "team1_name": "Top Esports", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 52, "match_idx": 543, "date": "2025-02-24T06:13:13+00:00", "team1_name": "Bilibili Gaming", "team2_name": "ThunderTalk Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 53, "match_idx": 544, "date": "2025-02-24T07:14:28+00:00", "team1_name": "Bilibili Gaming", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 54, "match_idx": 546, "date": "2025-02-24T08:07:39+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 55, "match_idx": 548, "date": "2025-02-24T09:02:56+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 56, "match_idx": 613, "date": "2025-02-24T10:27:04+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 57, "match_idx": 614, "date": "2025-02-24T11:26:10+00:00", "team1_name": "Top Esports", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 58, "match_idx": 615, "date": "2025-02-24T12:35:48+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Top Esports", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 59, "match_idx": 616, "date": "2025-02-24T13:26:14+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 60, "match_idx": 582, "date": "2025-02-25T09:13:19+00:00", "team1_name": "JD Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 61, "match_idx": 583, "date": "2025-02-25T10:18:47+00:00", "team1_name": "JD Gaming", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 62, "match_idx": 584, "date": "2025-02-25T11:12:09+00:00", "team1_name": "Anyone's Legend", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 63, "match_idx": 585, "date": "2025-02-25T12:14:37+00:00", "team1_name": "JD Gaming", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 64, "match_idx": 586, "date": "2025-02-25T13:21:30+00:00", "team1_name": "Anyone's Legend", "team2_name": "JD Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 65, "match_idx": 539, "date": "2025-02-26T09:13:46+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Top Esports", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 66, "match_idx": 540, "date": "2025-02-26T10:08:57+00:00", "team1_name": "Top Esports", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 67, "match_idx": 541, "date": "2025-02-26T11:00:57+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 68, "match_idx": 542, "date": "2025-02-26T12:01:40+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 69, "match_idx": 591, "date": "2025-02-27T09:13:04+00:00", "team1_name": "JD Gaming", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 70, "match_idx": 592, "date": "2025-02-27T10:14:52+00:00", "team1_name": "Top Esports", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 71, "match_idx": 593, "date": "2025-02-27T11:06:50+00:00", "team1_name": "JD Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 72, "match_idx": 594, "date": "2025-02-27T12:06:43+00:00", "team1_name": "JD Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 73, "match_idx": 620, "date": "2025-03-01T09:15:09+00:00", "team1_name": "Top Esports", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 74, "match_idx": 622, "date": "2025-03-01T10:17:51+00:00", "team1_name": "Anyone's Legend", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 75, "match_idx": 624, "date": "2025-03-01T11:13:59+00:00", "team1_name": "Top Esports", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 76, "match_idx": 236, "date": "2025-04-05T11:03:51+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 77, "match_idx": 238, "date": "2025-04-05T11:52:40+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 78, "match_idx": 11, "date": "2025-04-05T13:07:21+00:00", "team1_name": "Anyone's Legend", "team2_name": "Top Esports", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 79, "match_idx": 12, "date": "2025-04-05T13:59:45+00:00", "team1_name": "Top Esports", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 80, "match_idx": 13, "date": "2025-04-05T14:56:51+00:00", "team1_name": "Anyone's Legend", "team2_name": "Top Esports", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 81, "match_idx": 137, "date": "2025-04-06T07:29:34+00:00", "team1_name": "JD Gaming", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 82, "match_idx": 139, "date": "2025-04-06T08:29:09+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 83, "match_idx": 241, "date": "2025-04-06T10:51:47+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 84, "match_idx": 242, "date": "2025-04-06T11:50:55+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 85, "match_idx": 39, "date": "2025-04-06T13:16:00+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 86, "match_idx": 43, "date": "2025-04-06T14:26:22+00:00", "team1_name": "Invictus Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 87, "match_idx": 219, "date": "2025-04-07T12:58:31+00:00", "team1_name": "Top Esports", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 88, "match_idx": 221, "date": "2025-04-07T13:52:05+00:00", "team1_name": "Weibo Gaming", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 89, "match_idx": 223, "date": "2025-04-07T14:53:56+00:00", "team1_name": "Top Esports", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 90, "match_idx": 198, "date": "2025-04-08T09:27:33+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 91, "match_idx": 200, "date": "2025-04-08T10:12:04+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 92, "match_idx": 99, "date": "2025-04-08T11:29:14+00:00", "team1_name": "Anyone's Legend", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 93, "match_idx": 101, "date": "2025-04-08T12:23:53+00:00", "team1_name": "Invictus Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 94, "match_idx": 151, "date": "2025-04-09T12:46:14+00:00", "team1_name": "JD Gaming", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 95, "match_idx": 154, "date": "2025-04-09T13:34:10+00:00", "team1_name": "Team WE", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 96, "match_idx": 278, "date": "2025-04-10T09:27:39+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Weibo Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 97, "match_idx": 280, "date": "2025-04-10T10:18:50+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Weibo Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 98, "match_idx": 24, "date": "2025-04-10T11:32:38+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 99, "match_idx": 27, "date": "2025-04-10T12:26:31+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 100, "match_idx": 4, "date": "2025-04-11T09:25:59+00:00", "team1_name": "Anyone's Legend", "team2_name": "FunPlus Phoenix", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 101, "match_idx": 5, "date": "2025-04-11T10:33:36+00:00", "team1_name": "Anyone's Legend", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 102, "match_idx": 6, "date": "2025-04-11T11:33:01+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 103, "match_idx": 119, "date": "2025-04-11T13:01:12+00:00", "team1_name": "Invictus Gaming", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 104, "match_idx": 120, "date": "2025-04-11T13:59:01+00:00", "team1_name": "Top Esports", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 105, "match_idx": 121, "date": "2025-04-11T14:54:37+00:00", "team1_name": "Invictus Gaming", "team2_name": "Top Esports", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 106, "match_idx": 95, "date": "2025-04-12T07:25:45+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 107, "match_idx": 96, "date": "2025-04-12T08:23:30+00:00", "team1_name": "Weibo Gaming", "team2_name": "FunPlus Phoenix", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 108, "match_idx": 122, "date": "2025-04-12T09:47:09+00:00", "team1_name": "Invictus Gaming", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 109, "match_idx": 123, "date": "2025-04-12T10:36:30+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 110, "match_idx": 124, "date": "2025-04-12T11:26:17+00:00", "team1_name": "Invictus Gaming", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 111, "match_idx": 48, "date": "2025-04-12T12:55:24+00:00", "team1_name": "Bilibili Gaming", "team2_name": "JD Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 112, "match_idx": 49, "date": "2025-04-12T13:46:44+00:00", "team1_name": "Bilibili Gaming", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 113, "match_idx": 182, "date": "2025-04-13T07:22:45+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 114, "match_idx": 183, "date": "2025-04-13T08:22:55+00:00", "team1_name": "Team WE", "team2_name": "Ninjas in Pyjamas", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 115, "match_idx": 217, "date": "2025-04-13T09:45:54+00:00", "team1_name": "Top Esports", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 116, "match_idx": 218, "date": "2025-04-13T10:40:49+00:00", "team1_name": "Top Esports", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 117, "match_idx": 15, "date": "2025-04-13T11:51:39+00:00", "team1_name": "Anyone's Legend", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 118, "match_idx": 17, "date": "2025-04-13T12:43:54+00:00", "team1_name": "Weibo Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 119, "match_idx": 134, "date": "2025-04-14T12:48:12+00:00", "team1_name": "JD Gaming", "team2_name": "FunPlus Phoenix", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 120, "match_idx": 135, "date": "2025-04-14T13:51:02+00:00", "team1_name": "JD Gaming", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 121, "match_idx": 136, "date": "2025-04-14T14:43:04+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "JD Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 122, "match_idx": 114, "date": "2025-04-15T11:45:54+00:00", "team1_name": "Invictus Gaming", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 123, "match_idx": 116, "date": "2025-04-15T12:56:00+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 124, "match_idx": 118, "date": "2025-04-15T14:00:27+00:00", "team1_name": "Invictus Gaming", "team2_name": "Ninjas in Pyjamas", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 125, "match_idx": 167, "date": "2025-04-16T10:25:14+00:00", "team1_name": "LNG Esports", "team2_name": "LGD Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 126, "match_idx": 225, "date": "2025-04-16T11:35:49+00:00", "team1_name": "Top Esports", "team2_name": "Team WE", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 127, "match_idx": 227, "date": "2025-04-16T12:35:16+00:00", "team1_name": "Top Esports", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 128, "match_idx": 229, "date": "2025-04-16T13:37:48+00:00", "team1_name": "Team WE", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 129, "match_idx": 64, "date": "2025-04-17T09:25:47+00:00", "team1_name": "Team WE", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 130, "match_idx": 66, "date": "2025-04-17T10:21:39+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Team WE", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 131, "match_idx": 68, "date": "2025-04-17T11:12:51+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 132, "match_idx": 109, "date": "2025-04-18T12:25:56+00:00", "team1_name": "Invictus Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 133, "match_idx": 111, "date": "2025-04-18T13:29:10+00:00", "team1_name": "JD Gaming", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 134, "match_idx": 113, "date": "2025-04-18T14:23:12+00:00", "team1_name": "Invictus Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 135, "match_idx": 54, "date": "2025-04-20T09:26:17+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Top Esports", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 136, "match_idx": 57, "date": "2025-04-20T10:18:39+00:00", "team1_name": "Top Esports", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 137, "match_idx": 60, "date": "2025-04-20T11:17:29+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 138, "match_idx": 145, "date": "2025-04-21T10:35:09+00:00", "team1_name": "JD Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 139, "match_idx": 147, "date": "2025-04-21T11:33:01+00:00", "team1_name": "Weibo Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 140, "match_idx": 127, "date": "2025-04-21T12:44:09+00:00", "team1_name": "Team WE", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 141, "match_idx": 129, "date": "2025-04-21T13:34:30+00:00", "team1_name": "Invictus Gaming", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 142, "match_idx": 187, "date": "2025-04-22T09:23:12+00:00", "team1_name": "Royal Never Give Up", "team2_name": "LGD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 143, "match_idx": 188, "date": "2025-04-22T10:10:34+00:00", "team1_name": "Royal Never Give Up", "team2_name": "LGD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 144, "match_idx": 257, "date": "2025-04-22T11:28:13+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Team WE", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 145, "match_idx": 258, "date": "2025-04-22T12:26:04+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Team WE", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 146, "match_idx": 211, "date": "2025-04-23T11:24:07+00:00", "team1_name": "Top Esports", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 147, "match_idx": 213, "date": "2025-04-23T12:35:31+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 148, "match_idx": 215, "date": "2025-04-23T13:54:50+00:00", "team1_name": "Top Esports", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 149, "match_idx": 282, "date": "2025-04-24T09:24:34+00:00", "team1_name": "Weibo Gaming", "team2_name": "Team WE", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 150, "match_idx": 283, "date": "2025-04-24T10:20:27+00:00", "team1_name": "Weibo Gaming", "team2_name": "Team WE", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 151, "match_idx": 284, "date": "2025-04-24T11:24:16+00:00", "team1_name": "Team WE", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 152, "match_idx": 7, "date": "2025-04-24T12:50:26+00:00", "team1_name": "Anyone's Legend", "team2_name": "JD Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 153, "match_idx": 9, "date": "2025-04-24T13:41:37+00:00", "team1_name": "Anyone's Legend", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 154, "match_idx": 287, "date": "2025-04-25T09:23:28+00:00", "team1_name": "Team WE", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 155, "match_idx": 288, "date": "2025-04-25T10:20:14+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 156, "match_idx": 289, "date": "2025-04-25T11:10:59+00:00", "team1_name": "Team WE", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 157, "match_idx": 176, "date": "2025-04-25T12:42:12+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 158, "match_idx": 177, "date": "2025-04-25T13:35:07+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 159, "match_idx": 76, "date": "2025-04-26T10:15:45+00:00", "team1_name": "EDward Gaming", "team2_name": "Ultra Prime", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 160, "match_idx": 77, "date": "2025-04-26T11:04:35+00:00", "team1_name": "Ultra Prime", "team2_name": "EDward Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 161, "match_idx": 246, "date": "2025-04-26T12:25:03+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 162, "match_idx": 247, "date": "2025-04-26T13:21:02+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 163, "match_idx": 248, "date": "2025-04-26T14:15:42+00:00", "team1_name": "JD Gaming", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 164, "match_idx": 267, "date": "2025-04-27T10:14:12+00:00", "team1_name": "Weibo Gaming", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 165, "match_idx": 269, "date": "2025-04-27T11:10:43+00:00", "team1_name": "Weibo Gaming", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 166, "match_idx": 271, "date": "2025-04-27T12:03:02+00:00", "team1_name": "Invictus Gaming", "team2_name": "Weibo Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 167, "match_idx": 206, "date": "2025-04-27T13:26:03+00:00", "team1_name": "Top Esports", "team2_name": "JD Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 168, "match_idx": 208, "date": "2025-04-27T14:22:20+00:00", "team1_name": "Top Esports", "team2_name": "JD Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 169, "match_idx": 210, "date": "2025-04-27T15:28:27+00:00", "team1_name": "JD Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 170, "match_idx": 171, "date": "2025-04-28T10:10:45+00:00", "team1_name": "Royal Never Give Up", "team2_name": "LNG Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 171, "match_idx": 31, "date": "2025-04-28T11:27:05+00:00", "team1_name": "Bilibili Gaming", "team2_name": "FunPlus Phoenix", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 172, "match_idx": 33, "date": "2025-04-28T12:19:17+00:00", "team1_name": "Bilibili Gaming", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 173, "match_idx": 35, "date": "2025-04-28T13:07:22+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 174, "match_idx": 69, "date": "2025-04-29T09:25:19+00:00", "team1_name": "LGD Gaming", "team2_name": "EDward Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 175, "match_idx": 70, "date": "2025-04-29T10:54:28+00:00", "team1_name": "LGD Gaming", "team2_name": "EDward Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 176, "match_idx": 71, "date": "2025-04-29T11:44:43+00:00", "team1_name": "EDward Gaming", "team2_name": "LGD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 177, "match_idx": 261, "date": "2025-04-29T13:04:27+00:00", "team1_name": "Weibo Gaming", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 178, "match_idx": 262, "date": "2025-04-29T13:59:55+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 179, "match_idx": 263, "date": "2025-04-29T15:00:32+00:00", "team1_name": "Weibo Gaming", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 180, "match_idx": 125, "date": "2025-04-30T11:33:38+00:00", "team1_name": "Weibo Gaming", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 181, "match_idx": 126, "date": "2025-04-30T12:29:30+00:00", "team1_name": "Invictus Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 182, "match_idx": 93, "date": "2025-05-01T09:22:44+00:00", "team1_name": "Top Esports", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 183, "match_idx": 94, "date": "2025-05-01T10:23:57+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 184, "match_idx": 100, "date": "2025-05-01T11:40:41+00:00", "team1_name": "Invictus Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 185, "match_idx": 102, "date": "2025-05-01T12:33:30+00:00", "team1_name": "Invictus Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 186, "match_idx": 34, "date": "2025-05-03T10:29:40+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 187, "match_idx": 36, "date": "2025-05-03T11:29:00+00:00", "team1_name": "Bilibili Gaming", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 188, "match_idx": 203, "date": "2025-05-03T13:07:29+00:00", "team1_name": "Invictus Gaming", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 189, "match_idx": 204, "date": "2025-05-03T14:05:07+00:00", "team1_name": "Top Esports", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 190, "match_idx": 205, "date": "2025-05-03T15:09:57+00:00", "team1_name": "Invictus Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 191, "match_idx": 195, "date": "2025-05-04T12:26:20+00:00", "team1_name": "Anyone's Legend", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 192, "match_idx": 196, "date": "2025-05-04T13:30:46+00:00", "team1_name": "Top Esports", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 193, "match_idx": 97, "date": "2025-05-05T09:23:12+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Team WE", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 194, "match_idx": 98, "date": "2025-05-05T10:13:57+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Team WE", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 195, "match_idx": 152, "date": "2025-05-06T09:18:06+00:00", "team1_name": "Team WE", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 196, "match_idx": 155, "date": "2025-05-06T10:25:00+00:00", "team1_name": "Team WE", "team2_name": "JD Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 197, "match_idx": 157, "date": "2025-05-06T11:24:30+00:00", "team1_name": "JD Gaming", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 198, "match_idx": 243, "date": "2025-05-06T12:52:03+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 199, "match_idx": 244, "date": "2025-05-06T13:48:37+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 200, "match_idx": 245, "date": "2025-05-06T14:50:47+00:00", "team1_name": "Invictus Gaming", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 201, "match_idx": 25, "date": "2025-05-07T11:42:49+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 202, "match_idx": 28, "date": "2025-05-07T12:41:30+00:00", "team1_name": "Anyone's Legend", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 203, "match_idx": 216, "date": "2025-05-08T13:29:06+00:00", "team1_name": "Top Esports", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 204, "match_idx": 78, "date": "2025-05-09T09:20:41+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 205, "match_idx": 79, "date": "2025-05-09T10:27:53+00:00", "team1_name": "Anyone's Legend", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 206, "match_idx": 80, "date": "2025-05-09T11:17:09+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 207, "match_idx": 128, "date": "2025-05-09T12:57:28+00:00", "team1_name": "Invictus Gaming", "team2_name": "Team WE", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 208, "match_idx": 130, "date": "2025-05-09T13:56:12+00:00", "team1_name": "Invictus Gaming", "team2_name": "Team WE", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 209, "match_idx": 131, "date": "2025-05-09T14:51:43+00:00", "team1_name": "Team WE", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 210, "match_idx": 184, "date": "2025-05-10T07:27:09+00:00", "team1_name": "EDward Gaming", "team2_name": "Royal Never Give Up", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 211, "match_idx": 185, "date": "2025-05-10T08:15:07+00:00", "team1_name": "Royal Never Give Up", "team2_name": "EDward Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 212, "match_idx": 186, "date": "2025-05-10T09:05:45+00:00", "team1_name": "EDward Gaming", "team2_name": "Royal Never Give Up", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 213, "match_idx": 259, "date": "2025-05-10T10:25:22+00:00", "team1_name": "Anyone's Legend", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 214, "match_idx": 260, "date": "2025-05-10T11:20:38+00:00", "team1_name": "Weibo Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 215, "match_idx": 65, "date": "2025-05-10T12:36:02+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 216, "match_idx": 67, "date": "2025-05-10T13:36:21+00:00", "team1_name": "Team WE", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 217, "match_idx": 254, "date": "2025-05-11T10:28:33+00:00", "team1_name": "Weibo Gaming", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 218, "match_idx": 255, "date": "2025-05-11T11:25:21+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 219, "match_idx": 256, "date": "2025-05-11T12:17:07+00:00", "team1_name": "Weibo Gaming", "team2_name": "ThunderTalk Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 220, "match_idx": 207, "date": "2025-05-11T13:30:04+00:00", "team1_name": "Top Esports", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 221, "match_idx": 209, "date": "2025-05-11T14:24:53+00:00", "team1_name": "JD Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 222, "match_idx": 234, "date": "2025-05-12T09:23:06+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 223, "match_idx": 235, "date": "2025-05-12T10:18:39+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 224, "match_idx": 178, "date": "2025-05-12T11:32:20+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 225, "match_idx": 179, "date": "2025-05-12T12:33:31+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Ninjas in Pyjamas", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 226, "match_idx": 50, "date": "2025-05-13T09:18:18+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 227, "match_idx": 51, "date": "2025-05-13T10:20:10+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 228, "match_idx": 52, "date": "2025-05-13T11:12:19+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 229, "match_idx": 110, "date": "2025-05-13T12:27:51+00:00", "team1_name": "Invictus Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 230, "match_idx": 112, "date": "2025-05-13T13:19:33+00:00", "team1_name": "JD Gaming", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 231, "match_idx": 273, "date": "2025-05-14T09:18:47+00:00", "team1_name": "Weibo Gaming", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 232, "match_idx": 274, "date": "2025-05-14T10:28:33+00:00", "team1_name": "Weibo Gaming", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 233, "match_idx": 232, "date": "2025-05-14T11:46:04+00:00", "team1_name": "Top Esports", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 234, "match_idx": 233, "date": "2025-05-14T12:35:00+00:00", "team1_name": "Team WE", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 235, "match_idx": 173, "date": "2025-05-15T09:23:22+00:00", "team1_name": "Anyone's Legend", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 236, "match_idx": 174, "date": "2025-05-15T10:15:49+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 237, "match_idx": 175, "date": "2025-05-15T11:24:09+00:00", "team1_name": "Anyone's Legend", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 238, "match_idx": 293, "date": "2025-05-15T12:43:50+00:00", "team1_name": "Team WE", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 239, "match_idx": 294, "date": "2025-05-15T13:35:55+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Team WE", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 240, "match_idx": 86, "date": "2025-05-16T09:18:58+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 241, "match_idx": 87, "date": "2025-05-16T10:12:23+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 242, "match_idx": 115, "date": "2025-05-16T11:26:07+00:00", "team1_name": "Invictus Gaming", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 243, "match_idx": 117, "date": "2025-05-16T12:27:25+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 244, "match_idx": 220, "date": "2025-05-17T09:22:23+00:00", "team1_name": "Weibo Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 245, "match_idx": 222, "date": "2025-05-17T10:15:47+00:00", "team1_name": "Weibo Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 246, "match_idx": 132, "date": "2025-05-17T11:40:13+00:00", "team1_name": "JD Gaming", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 247, "match_idx": 133, "date": "2025-05-17T12:35:04+00:00", "team1_name": "Bilibili Gaming", "team2_name": "JD Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 248, "match_idx": 251, "date": "2025-05-18T09:23:03+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 249, "match_idx": 252, "date": "2025-05-18T10:13:57+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 250, "match_idx": 253, "date": "2025-05-18T11:03:50+00:00", "team1_name": "Top Esports", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 251, "match_idx": 285, "date": "2025-05-18T12:18:32+00:00", "team1_name": "Team WE", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 252, "match_idx": 286, "date": "2025-05-18T13:12:14+00:00", "team1_name": "Team WE", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 253, "match_idx": 264, "date": "2025-05-19T09:21:06+00:00", "team1_name": "Weibo Gaming", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 254, "match_idx": 265, "date": "2025-05-19T10:19:56+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Weibo Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 255, "match_idx": 138, "date": "2025-05-19T11:35:36+00:00", "team1_name": "JD Gaming", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 256, "match_idx": 55, "date": "2025-05-20T11:54:23+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Top Esports", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 257, "match_idx": 58, "date": "2025-05-20T12:49:30+00:00", "team1_name": "Top Esports", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 258, "match_idx": 8, "date": "2025-05-21T09:21:59+00:00", "team1_name": "Anyone's Legend", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 259, "match_idx": 10, "date": "2025-05-21T10:26:48+00:00", "team1_name": "Anyone's Legend", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 260, "match_idx": 40, "date": "2025-05-21T11:37:36+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 261, "match_idx": 44, "date": "2025-05-21T12:31:27+00:00", "team1_name": "Invictus Gaming", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 262, "match_idx": 295, "date": "2025-05-22T09:21:14+00:00", "team1_name": "Team WE", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 263, "match_idx": 296, "date": "2025-05-22T10:10:36+00:00", "team1_name": "Weibo Gaming", "team2_name": "Team WE", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 264, "match_idx": 249, "date": "2025-05-22T11:31:05+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 265, "match_idx": 250, "date": "2025-05-22T12:29:00+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "ThunderTalk Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 266, "match_idx": 103, "date": "2025-05-24T09:13:08+00:00", "team1_name": "Invictus Gaming", "team2_name": "EDward Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 267, "match_idx": 104, "date": "2025-05-24T10:12:33+00:00", "team1_name": "EDward Gaming", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 268, "match_idx": 105, "date": "2025-05-24T11:15:11+00:00", "team1_name": "EDward Gaming", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 269, "match_idx": 88, "date": "2025-05-25T09:12:59+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 270, "match_idx": 89, "date": "2025-05-25T10:02:34+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 271, "match_idx": 90, "date": "2025-05-25T10:54:05+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 272, "match_idx": 91, "date": "2025-05-25T11:45:31+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 273, "match_idx": 92, "date": "2025-05-25T12:52:50+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "FunPlus Phoenix", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 274, "match_idx": 162, "date": "2025-05-26T09:13:19+00:00", "team1_name": "Team WE", "team2_name": "LGD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 275, "match_idx": 163, "date": "2025-05-26T10:12:45+00:00", "team1_name": "LGD Gaming", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 276, "match_idx": 164, "date": "2025-05-26T11:04:42+00:00", "team1_name": "Team WE", "team2_name": "LGD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 277, "match_idx": 165, "date": "2025-05-26T11:54:41+00:00", "team1_name": "LGD Gaming", "team2_name": "Team WE", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 278, "match_idx": 279, "date": "2025-05-27T10:13:49+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Weibo Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 279, "match_idx": 281, "date": "2025-05-27T11:05:18+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Weibo Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 280, "match_idx": 197, "date": "2025-05-31T06:22:44+00:00", "team1_name": "Top Esports", "team2_name": "FunPlus Phoenix", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 281, "match_idx": 199, "date": "2025-05-31T07:10:55+00:00", "team1_name": "Top Esports", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 282, "match_idx": 201, "date": "2025-05-31T08:02:56+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 283, "match_idx": 202, "date": "2025-05-31T08:55:52+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 284, "match_idx": 37, "date": "2025-05-31T10:18:11+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 285, "match_idx": 41, "date": "2025-05-31T11:11:00+00:00", "team1_name": "Invictus Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 286, "match_idx": 45, "date": "2025-05-31T12:13:37+00:00", "team1_name": "Invictus Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 287, "match_idx": 20, "date": "2025-06-01T06:12:53+00:00", "team1_name": "Anyone's Legend", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 288, "match_idx": 21, "date": "2025-06-01T07:02:47+00:00", "team1_name": "Team WE", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 289, "match_idx": 22, "date": "2025-06-01T07:57:31+00:00", "team1_name": "Team WE", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 290, "match_idx": 142, "date": "2025-06-01T09:19:24+00:00", "team1_name": "JD Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 291, "match_idx": 144, "date": "2025-06-01T10:13:08+00:00", "team1_name": "Weibo Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 292, "match_idx": 146, "date": "2025-06-01T11:17:00+00:00", "team1_name": "JD Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 293, "match_idx": 148, "date": "2025-06-01T12:15:55+00:00", "team1_name": "Weibo Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 294, "match_idx": 149, "date": "2025-06-01T13:41:33+00:00", "team1_name": "Weibo Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 295, "match_idx": 53, "date": "2025-06-02T09:14:46+00:00", "team1_name": "Top Esports", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 296, "match_idx": 56, "date": "2025-06-02T10:06:45+00:00", "team1_name": "Top Esports", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 297, "match_idx": 59, "date": "2025-06-02T11:03:03+00:00", "team1_name": "Top Esports", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 298, "match_idx": 14, "date": "2025-06-03T09:17:15+00:00", "team1_name": "Anyone's Legend", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 299, "match_idx": 16, "date": "2025-06-03T10:13:12+00:00", "team1_name": "Weibo Gaming", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 300, "match_idx": 18, "date": "2025-06-03T11:12:38+00:00", "team1_name": "Anyone's Legend", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 301, "match_idx": 19, "date": "2025-06-03T12:07:45+00:00", "team1_name": "Weibo Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 302, "match_idx": 81, "date": "2025-06-04T09:13:56+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 303, "match_idx": 82, "date": "2025-06-04T10:05:26+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 304, "match_idx": 83, "date": "2025-06-04T11:02:20+00:00", "team1_name": "Invictus Gaming", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 305, "match_idx": 84, "date": "2025-06-04T11:52:57+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 306, "match_idx": 85, "date": "2025-06-04T12:58:40+00:00", "team1_name": "Invictus Gaming", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 307, "match_idx": 150, "date": "2025-06-05T09:13:17+00:00", "team1_name": "Team WE", "team2_name": "JD Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 308, "match_idx": 153, "date": "2025-06-05T10:06:47+00:00", "team1_name": "JD Gaming", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 309, "match_idx": 156, "date": "2025-06-05T10:56:15+00:00", "team1_name": "Team WE", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 310, "match_idx": 158, "date": "2025-06-05T11:51:22+00:00", "team1_name": "JD Gaming", "team2_name": "Team WE", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 311, "match_idx": 266, "date": "2025-06-07T09:13:36+00:00", "team1_name": "Weibo Gaming", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 312, "match_idx": 268, "date": "2025-06-07T10:13:10+00:00", "team1_name": "Invictus Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 313, "match_idx": 270, "date": "2025-06-07T11:06:49+00:00", "team1_name": "Weibo Gaming", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 314, "match_idx": 272, "date": "2025-06-07T12:04:26+00:00", "team1_name": "Weibo Gaming", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 315, "match_idx": 224, "date": "2025-06-08T09:13:22+00:00", "team1_name": "Top Esports", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 316, "match_idx": 226, "date": "2025-06-08T10:04:55+00:00", "team1_name": "Team WE", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 317, "match_idx": 228, "date": "2025-06-08T10:53:18+00:00", "team1_name": "Top Esports", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 318, "match_idx": 230, "date": "2025-06-08T11:46:19+00:00", "team1_name": "Team WE", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 319, "match_idx": 231, "date": "2025-06-08T12:58:31+00:00", "team1_name": "Team WE", "team2_name": "Top Esports", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 320, "match_idx": 0, "date": "2025-06-09T10:12:39+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 321, "match_idx": 1, "date": "2025-06-09T11:03:38+00:00", "team1_name": "Anyone's Legend", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 322, "match_idx": 2, "date": "2025-06-09T11:53:47+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 323, "match_idx": 3, "date": "2025-06-09T13:00:41+00:00", "team1_name": "Anyone's Legend", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 324, "match_idx": 290, "date": "2025-06-11T09:15:52+00:00", "team1_name": "Team WE", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 325, "match_idx": 291, "date": "2025-06-11T10:24:05+00:00", "team1_name": "Team WE", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 326, "match_idx": 292, "date": "2025-06-11T11:13:24+00:00", "team1_name": "Team WE", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 327, "match_idx": 38, "date": "2025-06-13T09:16:33+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 328, "match_idx": 42, "date": "2025-06-13T10:14:46+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 329, "match_idx": 46, "date": "2025-06-13T11:13:08+00:00", "team1_name": "Invictus Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 330, "match_idx": 47, "date": "2025-06-13T12:08:10+00:00", "team1_name": "Invictus Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 331, "match_idx": 23, "date": "2025-06-14T09:19:04+00:00", "team1_name": "Anyone's Legend", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 332, "match_idx": 26, "date": "2025-06-14T10:11:18+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 333, "match_idx": 29, "date": "2025-06-14T11:14:06+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 334, "match_idx": 30, "date": "2025-06-14T12:20:57+00:00", "team1_name": "Anyone's Legend", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 335, "match_idx": 506, "date": "2025-07-20T12:12:33+00:00", "team1_name": "Weibo Gaming", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 336, "match_idx": 508, "date": "2025-07-20T13:20:47+00:00", "team1_name": "Top Esports", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 337, "match_idx": 480, "date": "2025-07-21T11:01:00+00:00", "team1_name": "Ultra Prime", "team2_name": "ThunderTalk Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 338, "match_idx": 425, "date": "2025-07-22T10:59:40+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "LGD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 339, "match_idx": 390, "date": "2025-07-22T13:10:18+00:00", "team1_name": "Team WE", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 340, "match_idx": 363, "date": "2025-07-23T10:11:35+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 341, "match_idx": 530, "date": "2025-07-23T11:18:20+00:00", "team1_name": "Team WE", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 342, "match_idx": 532, "date": "2025-07-23T12:15:59+00:00", "team1_name": "Weibo Gaming", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 343, "match_idx": 534, "date": "2025-07-23T13:15:16+00:00", "team1_name": "Team WE", "team2_name": "Weibo Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 344, "match_idx": 469, "date": "2025-07-24T11:08:16+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "LNG Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 345, "match_idx": 470, "date": "2025-07-24T12:11:02+00:00", "team1_name": "LNG Esports", "team2_name": "ThunderTalk Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 346, "match_idx": 348, "date": "2025-07-25T09:13:34+00:00", "team1_name": "EDward Gaming", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 347, "match_idx": 349, "date": "2025-07-25T10:09:48+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "EDward Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 348, "match_idx": 419, "date": "2025-07-25T11:14:22+00:00", "team1_name": "LGD Gaming", "team2_name": "LNG Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 349, "match_idx": 420, "date": "2025-07-25T12:07:51+00:00", "team1_name": "LGD Gaming", "team2_name": "LNG Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 350, "match_idx": 421, "date": "2025-07-25T12:56:59+00:00", "team1_name": "LNG Esports", "team2_name": "LGD Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 351, "match_idx": 442, "date": "2025-07-26T07:13:10+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Ultra Prime", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 352, "match_idx": 443, "date": "2025-07-26T08:03:34+00:00", "team1_name": "Ultra Prime", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 353, "match_idx": 444, "date": "2025-07-26T08:53:08+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Ultra Prime", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 354, "match_idx": 414, "date": "2025-07-26T15:01:13+00:00", "team1_name": "JD Gaming", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 355, "match_idx": 334, "date": "2025-07-27T10:08:17+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 356, "match_idx": 323, "date": "2025-07-27T11:12:03+00:00", "team1_name": "Anyone's Legend", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 357, "match_idx": 325, "date": "2025-07-27T12:06:03+00:00", "team1_name": "Weibo Gaming", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 358, "match_idx": 327, "date": "2025-07-27T12:58:20+00:00", "team1_name": "Anyone's Legend", "team2_name": "Weibo Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 359, "match_idx": 415, "date": "2025-07-28T09:14:07+00:00", "team1_name": "LGD Gaming", "team2_name": "EDward Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 360, "match_idx": 417, "date": "2025-07-28T10:11:06+00:00", "team1_name": "LGD Gaming", "team2_name": "EDward Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 361, "match_idx": 407, "date": "2025-07-28T11:13:22+00:00", "team1_name": "Top Esports", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 362, "match_idx": 409, "date": "2025-07-28T12:05:13+00:00", "team1_name": "JD Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 363, "match_idx": 330, "date": "2025-07-30T09:16:28+00:00", "team1_name": "Anyone's Legend", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 364, "match_idx": 331, "date": "2025-07-30T10:09:25+00:00", "team1_name": "Team WE", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 365, "match_idx": 332, "date": "2025-07-30T11:06:23+00:00", "team1_name": "Anyone's Legend", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 366, "match_idx": 463, "date": "2025-07-31T09:14:23+00:00", "team1_name": "Top Esports", "team2_name": "Team WE", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 367, "match_idx": 464, "date": "2025-07-31T10:10:06+00:00", "team1_name": "Top Esports", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 368, "match_idx": 465, "date": "2025-07-31T11:03:16+00:00", "team1_name": "Team WE", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 369, "match_idx": 485, "date": "2025-07-31T12:10:52+00:00", "team1_name": "Weibo Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 370, "match_idx": 486, "date": "2025-07-31T13:13:26+00:00", "team1_name": "Weibo Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 371, "match_idx": 481, "date": "2025-08-01T11:19:24+00:00", "team1_name": "Invictus Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 372, "match_idx": 482, "date": "2025-08-01T12:18:19+00:00", "team1_name": "Weibo Gaming", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 373, "match_idx": 391, "date": "2025-08-02T12:17:14+00:00", "team1_name": "JD Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 374, "match_idx": 392, "date": "2025-08-02T13:12:50+00:00", "team1_name": "JD Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 375, "match_idx": 427, "date": "2025-08-03T10:10:12+00:00", "team1_name": "LNG Esports", "team2_name": "EDward Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 376, "match_idx": 342, "date": "2025-08-03T11:15:03+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Top Esports", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 377, "match_idx": 439, "date": "2025-08-05T09:12:23+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "ThunderTalk Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 378, "match_idx": 440, "date": "2025-08-05T10:16:59+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 379, "match_idx": 441, "date": "2025-08-05T11:21:38+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Ninjas in Pyjamas", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 380, "match_idx": 318, "date": "2025-08-05T12:22:02+00:00", "team1_name": "Top Esports", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 381, "match_idx": 320, "date": "2025-08-05T13:20:13+00:00", "team1_name": "Anyone's Legend", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 382, "match_idx": 337, "date": "2025-08-06T10:18:03+00:00", "team1_name": "Bilibili Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 383, "match_idx": 339, "date": "2025-08-06T11:13:25+00:00", "team1_name": "JD Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 384, "match_idx": 306, "date": "2025-08-06T12:20:10+00:00", "team1_name": "Invictus Gaming", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 385, "match_idx": 308, "date": "2025-08-06T13:18:33+00:00", "team1_name": "Anyone's Legend", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 386, "match_idx": 471, "date": "2025-08-07T11:18:54+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 387, "match_idx": 472, "date": "2025-08-07T12:17:10+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 388, "match_idx": 473, "date": "2025-08-07T13:12:34+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "Ninjas in Pyjamas", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 389, "match_idx": 438, "date": "2025-08-08T11:11:53+00:00", "team1_name": "LNG Esports", "team2_name": "Ultra Prime", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 390, "match_idx": 303, "date": "2025-08-08T12:27:53+00:00", "team1_name": "Anyone's Legend", "team2_name": "FunPlus Phoenix", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 391, "match_idx": 304, "date": "2025-08-08T13:18:58+00:00", "team1_name": "Anyone's Legend", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 392, "match_idx": 305, "date": "2025-08-08T14:16:15+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 393, "match_idx": 513, "date": "2025-08-09T07:12:33+00:00", "team1_name": "Team WE", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 394, "match_idx": 515, "date": "2025-08-09T08:06:18+00:00", "team1_name": "Team WE", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 395, "match_idx": 517, "date": "2025-08-09T08:55:36+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 396, "match_idx": 505, "date": "2025-08-09T10:00:42+00:00", "team1_name": "Top Esports", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 397, "match_idx": 507, "date": "2025-08-09T10:52:54+00:00", "team1_name": "Weibo Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 398, "match_idx": 383, "date": "2025-08-09T11:57:41+00:00", "team1_name": "Invictus Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 399, "match_idx": 385, "date": "2025-08-09T12:52:11+00:00", "team1_name": "JD Gaming", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 400, "match_idx": 466, "date": "2025-08-10T09:13:03+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "EDward Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 401, "match_idx": 467, "date": "2025-08-10T10:11:33+00:00", "team1_name": "EDward Gaming", "team2_name": "ThunderTalk Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 402, "match_idx": 468, "date": "2025-08-10T11:02:26+00:00", "team1_name": "ThunderTalk Gaming", "team2_name": "EDward Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 403, "match_idx": 514, "date": "2025-08-10T12:06:54+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 404, "match_idx": 516, "date": "2025-08-10T13:16:38+00:00", "team1_name": "Team WE", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 405, "match_idx": 518, "date": "2025-08-10T14:10:29+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 406, "match_idx": 476, "date": "2025-08-11T09:09:58+00:00", "team1_name": "Ultra Prime", "team2_name": "Ninjas in Pyjamas", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 407, "match_idx": 477, "date": "2025-08-11T10:03:44+00:00", "team1_name": "Ultra Prime", "team2_name": "Ninjas in Pyjamas", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 408, "match_idx": 424, "date": "2025-08-12T10:04:04+00:00", "team1_name": "LGD Gaming", "team2_name": "Ninjas in Pyjamas", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 409, "match_idx": 531, "date": "2025-08-12T11:06:03+00:00", "team1_name": "Weibo Gaming", "team2_name": "Team WE", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 410, "match_idx": 533, "date": "2025-08-12T12:00:28+00:00", "team1_name": "Weibo Gaming", "team2_name": "Team WE", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 411, "match_idx": 535, "date": "2025-08-12T12:50:28+00:00", "team1_name": "Team WE", "team2_name": "Weibo Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 412, "match_idx": 411, "date": "2025-08-13T11:03:30+00:00", "team1_name": "Top Esports", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 413, "match_idx": 298, "date": "2025-08-13T12:04:13+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 414, "match_idx": 300, "date": "2025-08-13T12:56:33+00:00", "team1_name": "Anyone's Legend", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 415, "match_idx": 302, "date": "2025-08-13T13:49:40+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 416, "match_idx": 307, "date": "2025-08-15T09:18:00+00:00", "team1_name": "Anyone's Legend", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 417, "match_idx": 309, "date": "2025-08-15T10:10:51+00:00", "team1_name": "Invictus Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 418, "match_idx": 343, "date": "2025-08-15T11:16:50+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Weibo Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 419, "match_idx": 344, "date": "2025-08-15T12:29:59+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 420, "match_idx": 345, "date": "2025-08-15T13:28:46+00:00", "team1_name": "Weibo Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 421, "match_idx": 386, "date": "2025-08-16T13:04:49+00:00", "team1_name": "Invictus Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 422, "match_idx": 387, "date": "2025-08-16T13:53:49+00:00", "team1_name": "Invictus Gaming", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 423, "match_idx": 388, "date": "2025-08-16T14:46:32+00:00", "team1_name": "Top Esports", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 424, "match_idx": 483, "date": "2025-08-17T09:10:55+00:00", "team1_name": "Weibo Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 425, "match_idx": 484, "date": "2025-08-17T10:03:12+00:00", "team1_name": "Weibo Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 426, "match_idx": 446, "date": "2025-08-17T11:05:27+00:00", "team1_name": "Top Esports", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 427, "match_idx": 448, "date": "2025-08-17T11:56:42+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 428, "match_idx": 488, "date": "2025-08-18T09:11:27+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Weibo Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 429, "match_idx": 490, "date": "2025-08-18T10:04:33+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Weibo Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 430, "match_idx": 369, "date": "2025-08-18T11:18:18+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 431, "match_idx": 372, "date": "2025-08-18T12:31:36+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 432, "match_idx": 375, "date": "2025-08-18T13:30:25+00:00", "team1_name": "Invictus Gaming", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 433, "match_idx": 431, "date": "2025-08-19T09:11:44+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "LNG Esports", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 434, "match_idx": 319, "date": "2025-08-19T11:17:13+00:00", "team1_name": "Anyone's Legend", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 435, "match_idx": 321, "date": "2025-08-19T12:15:27+00:00", "team1_name": "Anyone's Legend", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 436, "match_idx": 354, "date": "2025-08-20T11:11:48+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 437, "match_idx": 355, "date": "2025-08-20T12:01:21+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 438, "match_idx": 474, "date": "2025-08-21T09:10:38+00:00", "team1_name": "Ultra Prime", "team2_name": "EDward Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 439, "match_idx": 475, "date": "2025-08-21T10:06:34+00:00", "team1_name": "Ultra Prime", "team2_name": "EDward Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 440, "match_idx": 393, "date": "2025-08-21T11:09:55+00:00", "team1_name": "JD Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 441, "match_idx": 394, "date": "2025-08-21T12:07:24+00:00", "team1_name": "JD Gaming", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 442, "match_idx": 395, "date": "2025-08-21T12:51:15+00:00", "team1_name": "Bilibili Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 443, "match_idx": 380, "date": "2025-08-22T09:12:40+00:00", "team1_name": "Invictus Gaming", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 444, "match_idx": 381, "date": "2025-08-22T10:05:19+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 445, "match_idx": 416, "date": "2025-08-22T11:08:07+00:00", "team1_name": "EDward Gaming", "team2_name": "LGD Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 446, "match_idx": 418, "date": "2025-08-22T12:02:45+00:00", "team1_name": "EDward Gaming", "team2_name": "LGD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 447, "match_idx": 528, "date": "2025-08-23T09:57:31+00:00", "team1_name": "Top Esports", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 448, "match_idx": 529, "date": "2025-08-23T10:48:39+00:00", "team1_name": "Team WE", "team2_name": "Top Esports", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 449, "match_idx": 492, "date": "2025-08-23T11:55:32+00:00", "team1_name": "Weibo Gaming", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 450, "match_idx": 493, "date": "2025-08-23T12:58:38+00:00", "team1_name": "Weibo Gaming", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 451, "match_idx": 494, "date": "2025-08-23T13:54:46+00:00", "team1_name": "Invictus Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 452, "match_idx": 346, "date": "2025-08-24T09:12:37+00:00", "team1_name": "EDward Gaming", "team2_name": "LNG Esports", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 453, "match_idx": 347, "date": "2025-08-24T09:59:37+00:00", "team1_name": "LNG Esports", "team2_name": "EDward Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 454, "match_idx": 311, "date": "2025-08-24T11:22:32+00:00", "team1_name": "Anyone's Legend", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 455, "match_idx": 313, "date": "2025-08-24T12:18:18+00:00", "team1_name": "JD Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 456, "match_idx": 526, "date": "2025-08-26T09:11:34+00:00", "team1_name": "Team WE", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 457, "match_idx": 527, "date": "2025-08-26T10:04:37+00:00", "team1_name": "Team WE", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 458, "match_idx": 496, "date": "2025-08-27T09:10:58+00:00", "team1_name": "Weibo Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 459, "match_idx": 499, "date": "2025-08-27T10:08:59+00:00", "team1_name": "JD Gaming", "team2_name": "Weibo Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 460, "match_idx": 511, "date": "2025-08-27T11:09:00+00:00", "team1_name": "Team WE", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 461, "match_idx": 512, "date": "2025-08-27T12:12:26+00:00", "team1_name": "Anyone's Legend", "team2_name": "Team WE", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 462, "match_idx": 497, "date": "2025-08-28T09:12:45+00:00", "team1_name": "JD Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 463, "match_idx": 500, "date": "2025-08-28T10:10:14+00:00", "team1_name": "Weibo Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 464, "match_idx": 502, "date": "2025-08-28T11:00:40+00:00", "team1_name": "JD Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 465, "match_idx": 370, "date": "2025-08-28T12:03:35+00:00", "team1_name": "Invictus Gaming", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 466, "match_idx": 373, "date": "2025-08-28T13:01:20+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 467, "match_idx": 358, "date": "2025-08-30T11:15:50+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 468, "match_idx": 359, "date": "2025-08-30T12:13:01+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "FunPlus Phoenix", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 469, "match_idx": 360, "date": "2025-08-30T13:10:27+00:00", "team1_name": "FunPlus Phoenix", "team2_name": "Ninjas in Pyjamas", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 470, "match_idx": 519, "date": "2025-08-31T09:39:33+00:00", "team1_name": "Team WE", "team2_name": "EDward Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 471, "match_idx": 520, "date": "2025-08-31T10:36:50+00:00", "team1_name": "Team WE", "team2_name": "EDward Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 472, "match_idx": 521, "date": "2025-08-31T11:29:06+00:00", "team1_name": "Team WE", "team2_name": "EDward Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 473, "match_idx": 522, "date": "2025-08-31T12:15:29+00:00", "team1_name": "EDward Gaming", "team2_name": "Team WE", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 474, "match_idx": 509, "date": "2025-09-01T09:11:13+00:00", "team1_name": "Weibo Gaming", "team2_name": "Ultra Prime", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 475, "match_idx": 510, "date": "2025-09-01T10:06:15+00:00", "team1_name": "Ultra Prime", "team2_name": "Weibo Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 476, "match_idx": 404, "date": "2025-09-02T09:11:42+00:00", "team1_name": "JD Gaming", "team2_name": "LGD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 477, "match_idx": 405, "date": "2025-09-02T10:08:57+00:00", "team1_name": "LGD Gaming", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 478, "match_idx": 406, "date": "2025-09-02T11:12:41+00:00", "team1_name": "LGD Gaming", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 479, "match_idx": 335, "date": "2025-09-07T06:13:14+00:00", "team1_name": "Bilibili Gaming", "team2_name": "JD Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 480, "match_idx": 336, "date": "2025-09-07T07:06:48+00:00", "team1_name": "Bilibili Gaming", "team2_name": "JD Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 481, "match_idx": 338, "date": "2025-09-07T08:04:16+00:00", "team1_name": "Bilibili Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 482, "match_idx": 340, "date": "2025-09-07T08:56:46+00:00", "team1_name": "JD Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 483, "match_idx": 341, "date": "2025-09-07T09:54:58+00:00", "team1_name": "JD Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 484, "match_idx": 377, "date": "2025-09-07T11:19:56+00:00", "team1_name": "Invictus Gaming", "team2_name": "EDward Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 485, "match_idx": 378, "date": "2025-09-07T12:23:55+00:00", "team1_name": "EDward Gaming", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 486, "match_idx": 379, "date": "2025-09-07T13:18:43+00:00", "team1_name": "EDward Gaming", "team2_name": "Invictus Gaming", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 487, "match_idx": 322, "date": "2025-09-08T06:14:07+00:00", "team1_name": "Anyone's Legend", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 488, "match_idx": 324, "date": "2025-09-08T07:08:39+00:00", "team1_name": "Weibo Gaming", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 489, "match_idx": 326, "date": "2025-09-08T08:03:02+00:00", "team1_name": "Anyone's Legend", "team2_name": "Weibo Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 490, "match_idx": 328, "date": "2025-09-08T08:56:29+00:00", "team1_name": "Anyone's Legend", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 491, "match_idx": 329, "date": "2025-09-08T09:52:38+00:00", "team1_name": "Weibo Gaming", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 492, "match_idx": 455, "date": "2025-09-08T11:23:39+00:00", "team1_name": "Top Esports", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 493, "match_idx": 456, "date": "2025-09-08T12:17:42+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 494, "match_idx": 457, "date": "2025-09-08T13:16:45+00:00", "team1_name": "Top Esports", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 495, "match_idx": 458, "date": "2025-09-08T14:17:02+00:00", "team1_name": "Top Esports", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 496, "match_idx": 368, "date": "2025-09-09T09:14:04+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 497, "match_idx": 371, "date": "2025-09-09T10:07:43+00:00", "team1_name": "Invictus Gaming", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 498, "match_idx": 374, "date": "2025-09-09T10:59:56+00:00", "team1_name": "Invictus Gaming", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 499, "match_idx": 376, "date": "2025-09-09T11:56:05+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Invictus Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 500, "match_idx": 459, "date": "2025-09-10T09:11:39+00:00", "team1_name": "Top Esports", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 501, "match_idx": 460, "date": "2025-09-10T10:09:41+00:00", "team1_name": "Weibo Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 502, "match_idx": 461, "date": "2025-09-10T11:09:34+00:00", "team1_name": "Weibo Gaming", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 503, "match_idx": 462, "date": "2025-09-10T12:00:49+00:00", "team1_name": "Top Esports", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 504, "match_idx": 396, "date": "2025-09-11T09:12:57+00:00", "team1_name": "EDward Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 505, "match_idx": 397, "date": "2025-09-11T10:16:38+00:00", "team1_name": "JD Gaming", "team2_name": "EDward Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 506, "match_idx": 398, "date": "2025-09-11T11:21:26+00:00", "team1_name": "EDward Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 507, "match_idx": 399, "date": "2025-09-11T12:12:11+00:00", "team1_name": "JD Gaming", "team2_name": "EDward Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 508, "match_idx": 400, "date": "2025-09-11T13:10:20+00:00", "team1_name": "EDward Gaming", "team2_name": "JD Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 509, "match_idx": 315, "date": "2025-09-12T09:12:46+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Anyone's Legend", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 510, "match_idx": 316, "date": "2025-09-12T10:06:47+00:00", "team1_name": "Anyone's Legend", "team2_name": "Ninjas in Pyjamas", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 511, "match_idx": 317, "date": "2025-09-12T10:57:57+00:00", "team1_name": "Ninjas in Pyjamas", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 512, "match_idx": 495, "date": "2025-09-13T09:13:51+00:00", "team1_name": "JD Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 513, "match_idx": 498, "date": "2025-09-13T10:09:50+00:00", "team1_name": "Weibo Gaming", "team2_name": "JD Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 514, "match_idx": 501, "date": "2025-09-13T11:02:04+00:00", "team1_name": "Weibo Gaming", "team2_name": "JD Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 515, "match_idx": 503, "date": "2025-09-13T11:57:04+00:00", "team1_name": "JD Gaming", "team2_name": "Weibo Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 516, "match_idx": 365, "date": "2025-09-14T09:16:09+00:00", "team1_name": "Invictus Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 517, "match_idx": 366, "date": "2025-09-14T10:05:06+00:00", "team1_name": "Invictus Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 518, "match_idx": 367, "date": "2025-09-14T10:58:28+00:00", "team1_name": "Invictus Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
+{"row_idx": 519, "match_idx": 445, "date": "2025-09-15T09:11:56+00:00", "team1_name": "Top Esports", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 520, "match_idx": 447, "date": "2025-09-15T10:12:30+00:00", "team1_name": "Top Esports", "team2_name": "Bilibili Gaming", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 521, "match_idx": 449, "date": "2025-09-15T11:19:49+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Top Esports", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 522, "match_idx": 450, "date": "2025-09-15T12:09:40+00:00", "team1_name": "Bilibili Gaming", "team2_name": "Top Esports", "team1_result": 1, "pred": 0, "raw_text": "0"}
+{"row_idx": 523, "match_idx": 451, "date": "2025-09-15T13:03:25+00:00", "team1_name": "Top Esports", "team2_name": "Bilibili Gaming", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 524, "match_idx": 310, "date": "2025-09-16T09:11:18+00:00", "team1_name": "Anyone's Legend", "team2_name": "JD Gaming", "team1_result": 1, "pred": 1, "raw_text": "1"}
+{"row_idx": 525, "match_idx": 312, "date": "2025-09-16T10:16:29+00:00", "team1_name": "JD Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 1, "raw_text": "1"}
+{"row_idx": 526, "match_idx": 314, "date": "2025-09-16T11:23:00+00:00", "team1_name": "JD Gaming", "team2_name": "Anyone's Legend", "team1_result": 0, "pred": 0, "raw_text": "0"}
