@@ -324,7 +324,7 @@ if __name__ == "__main__":
         for rec in seq:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
 
-    print(f"✅ Wrote {len(seq)} samples to {args.out}")
-    print(f"ℹ️ Used events_col='{events_col}'")
+    print(f"Wrote {len(seq)} samples to {args.out}")
+    print(f"Used events_col='{events_col}'")
     if len(seq) > 0:
-        print("ℹ️ Example keys:", list(seq[0].keys()))
+        print("Example keys:", list(seq[0].keys()))
