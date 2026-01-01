@@ -13,7 +13,12 @@ import pandas as pd
 import numpy as np
 
 from lstm import LSTMPredictor
-from features import all_feature_fn, numerical_feature_fn, embedding_feature_fn, target_feature_fn, garbage_feature_fn
+from features import (
+    all_feature_fn,
+    numerical_feature_fn,
+    embedding_feature_fn,
+    target_feature_fn,
+    garbage_feature_fn)
 from sequence_dataset import build_sequence_dataset
 from pca import apply_pca_to_embeddings
 from random_utils.visualization import save_curves
@@ -62,6 +67,9 @@ parser.add_argument("--optuna_metric", type=str, default="acc", choices=["acc", 
                     help="Objective metric for classification (acc=max, loss=min). For regression it uses MAE=min.")
 
 class SeqDataset(Dataset):
+    """
+    Torch Dataset wrapper for fixed-length sequence tensors and corresponding targets.
+    """
     def __init__(self, X_arr: np.ndarray, y_arr: np.ndarray):
         self.X = torch.from_numpy(X_arr)
         self.y = torch.from_numpy(y_arr)
@@ -98,6 +106,10 @@ def build_training_objects(
     lr: float,
     weight_decay: float,
 ):
+    """
+    Construct the model, loss function, optimizer, and learning-rate scheduler
+    for a single training run.
+    """
     model = LSTMPredictor(
         input_dim=input_dim,
         hidden_dim=hidden_dim,

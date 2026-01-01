@@ -3,7 +3,7 @@ import torch.nn as nn
 
 class LSTMPredictor(nn.Module):
     """
-    Class which can take a
+    Our main LSTM model: layer norm -> LSTM -> pooling -> head -> prediction.
     """
     def __init__(self, input_dim=384, hidden_dim=256, num_layers=4, dropout=0.2,
                  bidirectional=False, pooling="last"):

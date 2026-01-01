@@ -30,36 +30,12 @@ def embedding_feature_fn(row: pd.Series, team_name: str) -> np.ndarray:
         emb
     ])
 
-def both_feature_fn(row: pd.Series, team_name: str) -> np.ndarray:
-    """
-    Historical relict. We don't use this function in the thesis.
-    """
-    if team_name == row["team1_name"]:
-        pov_side = "team1"
-        team_is_team1 = 1.0
-    elif team_name == row["team2_name"]:
-        pov_side = "team2"
-        team_is_team1 = 0.0
-    else:
-        raise ValueError(f"Invalid team name: {team_name}")
-
-    embedding = np.array(row["embedding"], dtype=np.float32)
-    pov_win = float(_pov_result(row, pov_side))
-
-    return np.concatenate([
-        np.array([team_is_team1, pov_win], dtype=np.float32),
-        embedding
-    ])
 
 def target_feature_fn(row: pd.Series, team_name: str, target_col: str) -> np.ndarray:
     """
     Baseline for arbitrary target column.
-    Returns [team_is_team1, pov_target_value].
-
-    pov_target_value is:
-        - row[target_col]      if POV = team1
-        - row[target_col for team2] if target is symmetric
-        - row[target_col]      if target is a team1-based metric (like kill_diff, kill_total)
+    Handles the fact that our team could be the team_2 (flips; or takes the value of the opposing team)
+    Returns [pov_target_value].
     """
     # side indicator
     if team_name == row["team1_name"]:

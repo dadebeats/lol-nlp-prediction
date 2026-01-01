@@ -17,6 +17,15 @@ def run_epoch(
     device: torch.device,
     is_classification: bool
 ) -> Tuple[float, float]:
+    """
+    Execute a single training or evaluation epoch.
+
+    If an optimizer is provided, the model is trained and parameters are updated (train data).
+    Otherwise, the model is evaluated without gradient updates (val data).
+
+    Returns the average loss and the primary evaluation metric:
+    accuracy for classification tasks or mean absolute error for regression.
+    """
     train = optimizer is not None
     model.train(train)
 
@@ -66,6 +75,17 @@ def train_eval(
     trial: Optional[Trial] = None,
     objective_mode: str = "acc",   # "acc" or "loss" for classification; regression uses MAE
 ) -> Tuple[float, Dict[str, List[float]]]:
+    """
+    Run a full training loop consisting of multiple epochs with interleaved
+    training and validation phases.
+
+    Tracks loss and task-specific metrics over time, applies learning rate
+    scheduling based on validation performance, and optionally supports
+    Optuna-based pruning and checkpointing.
+
+    Returns the best validation score achieved and a dictionary containing
+    training and validation curves.
+    """
     best = -np.inf
     curves = {"train_loss": [], "val_loss": [], "train_metric": [], "val_metric": []}
 
