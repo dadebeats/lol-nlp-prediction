@@ -151,7 +151,7 @@ Further details (hyperparameters, configurations, and full experiment
 descriptions) are provided in the thesis appendices.
 
 
-### `data_scraping/youtube_commentary_data`
+### `data_scraping/`
 
 Technical scripts documenting how raw match commentary was collected from
 YouTube. This stage is not intended to be re-executed by users.
