@@ -84,12 +84,12 @@ discussed in the experimental section of the thesis.
 
 User can change the embeddings used by changing the dataset to be loaded.
 
-## `llm_predictions`
+### `llm_predictions`
 
 We do not recommend using scripts in this folder as there would be need to load credit to the OpenAI API and provide
 API key. We provide the outputs the API returned, anyway.
 
-## `winner_prediction/baseline_lstm.py`
+### `winner_prediction/baseline_lstm.py`
 
 This script is the core experimental driver used in Chapters 4 and 5 of the
 thesis. It runs the specified training procedure, reports the best validation
@@ -151,14 +151,14 @@ Further details (hyperparameters, configurations, and full experiment
 descriptions) are provided in the thesis appendices.
 
 
-## `data_scraping/youtube_commentary_data`
+### `data_scraping/youtube_commentary_data`
 
 Technical scripts documenting how raw match commentary was collected from
 YouTube. This stage is not intended to be re-executed by users.
 
 ---
 
-### Data sources
+#### Data sources
 
 Commentary is sourced from official YouTube playlists for major League of
 Legends tournaments (Worlds, MSI, LCK, LPL, LEC).
@@ -168,7 +168,7 @@ identifiers to league-specific output folders.
 
 ---
 
-### Subtitle download
+#### Subtitle download
 
 `youtube_transcript_downloader.py` downloads automatic English subtitles using
 `yt-dlp`.
@@ -179,14 +179,14 @@ identifiers to league-specific output folders.
 
 ---
 
-### Subtitle preprocessing
+#### Subtitle preprocessing
 
 `srt_to_text.py` converts `.en.srt` files to plain text by removing timestamps
 and concatenating subtitle segments into `.en.plain.txt` files.
 
 The resulting text is used in downstream ASR correction and modeling.
 
-## `data_integration/`
+### `data_integration/`
 
 Scripts for cleaning, aligning, and merging multiple data sources
 (Oracle’s Elixir match data and YouTube commentary text) into a unified dataset.
@@ -200,7 +200,7 @@ downstream experiments (`winner_prediction/`, `llm_predictions/`).
 Users are **not expected** to run these scripts. The resulting CSV / Parquet
 files are assumed to already be present in the repository.
 
-### Oracle Elixir preprocessing
+#### Oracle Elixir preprocessing
 
 `postprocess_oracle_elixir_data.py` converts raw Oracle’s Elixir match-level data
 into a compact, match-centric schema.
@@ -216,7 +216,7 @@ This produces the structured metadata used throughout the thesis.
 
 ---
 
-### Linking commentary to match metadata
+#### Linking commentary to match metadata
 
 `link_youtube_to_oracle.py` aligns YouTube commentary transcripts with Oracle
 Elixir matches.
@@ -233,7 +233,7 @@ This step bridges unstructured commentary text with structured match data.
 
 ---
 
-### Text embedding integration
+#### Text embedding integration
 
 `embed_texts.py` augments the integrated dataset with vector representations of
 commentary text.
@@ -247,7 +247,7 @@ Embeddings generated here are used directly by prediction models.
 
 ---
 
-### Configuration management
+#### Configuration management
 
 `text_and_embedding_config.py` defines immutable configuration objects used to
 parameterize preprocessing and embedding.
@@ -258,13 +258,13 @@ parameterize preprocessing and embedding.
 
 ---
 
-### Notes on reproducibility
+#### Notes on reproducibility
 
 - Data integration was performed sequentially and iteratively
 - Intermediate artifacts are not optimized for re-execution
 - Final integrated datasets are provided directly with the repository
 - 
-## `data_analysis/embedding_pca_analysis.py`
+### `data_analysis/embedding_pca_analysis.py`
 
 PCA-based analysis of text embeddings for structural inspection and comparison.
 
@@ -279,7 +279,7 @@ with optional outlier filtering and legend pruning.
 This module is used to analyze clustering, variation, and extremes in the
 embedding space.
 
-## `asr/`
+### `asr/`
 In the file `test_and_choose_gpt_model.py)` we intake a manually create json lines (.jsonl) file containing the
 transcript and we use it as an input to OpenAI API calls, calling the specified models (gpt5, gpt5_mini...).
 For each of the models we add their output to the output file which is in .jsonl format as well.
@@ -293,7 +293,7 @@ Finally in `run_batch_gpt.py`, after choosing which model to proceed with, we ru
 This returns and saves a dataframe with added (or replaced) column "text".
 
 
-## `llm_predictions/`
+### `llm_predictions/`
 
 This folder contains the large language model (LLM)–based pipelines used in the
 thesis to extract structured match information from commentary transcripts and
@@ -306,7 +306,7 @@ construction, and Pass 2 outcome prediction.
 
 ---
 
-### Pass 1: Commentary → structured events  
+#### Pass 1: Commentary → structured events  
 **File:** `run_batch_gpt_pass1.py`
 
 This script converts a full League of Legends match commentary transcript into
@@ -322,7 +322,7 @@ as JSON-encoded event lists appended to the dataset.
 
 ---
 
-### Sequence construction for Pass 2  
+#### Sequence construction for Pass 2  
 **File:** `prepare_pass2_seq.py`
 
 This script builds roster-aware historical sequences from Pass 1 outputs.  
@@ -338,7 +338,7 @@ This representation mirrors the history construction used in baseline models.
 
 ---
 
-### Pass 2: Sequential histories → winner prediction  
+#### Pass 2: Sequential histories → winner prediction  
 **File:** `run_batch_gpt_pass2.py`
 
 This script predicts match outcomes directly from the sequential histories
@@ -353,7 +353,7 @@ The output is also a JSONL file.
 
 ---
 
-### Reproducibility notes
+#### Reproducibility notes
 
 - All LLM-based scripts require external API access and are not meant to be run
   by users or reviewers.
@@ -361,7 +361,7 @@ The output is also a JSONL file.
   directly in the repository.
 
 
-## `winner_prediction/baseline_lstm.py`
+### `winner_prediction/baseline_lstm.py`
 
 This module implements the full training, evaluation, and reporting pipeline
 used for all LSTM-based baselines in the thesis. It is designed as a single,
@@ -374,7 +374,7 @@ via command-line arguments.
 
 ---
 
-### External libraries and dependencies
+#### External libraries and dependencies
 
 The implementation relies on the following core libraries:
 
@@ -406,7 +406,7 @@ available locally in CSV or Parquet format.
 
 ---
 
-### High-level execution flow
+#### High-level execution flow
 
 At a high level, execution proceeds through the following stages:
 
@@ -449,7 +449,7 @@ At a high level, execution proceeds through the following stages:
 
 ---
 
-### Hyperparameter optimization flow
+#### Hyperparameter optimization flow
 
 When Optuna optimization is enabled:
 
@@ -464,7 +464,7 @@ ensuring comparability between optimized and non-optimized experiments.
 
 ---
 
-### Design notes
+#### Design notes
 
 - The script deliberately prioritizes **experiment traceability** over modular
   abstraction.
