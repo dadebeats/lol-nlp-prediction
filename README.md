@@ -86,14 +86,14 @@ The repository is organized into the following top-level folders:
 User-facing scripts are located primarily in:
 
 - `predictions/`
-- `llm_predictions/`
+- `data_analysis/`
 
 Each experiment can be run via Python scripts with command-line arguments.
 Example commands are provided in the thesis and in inline comments.
 
 Datasets are assumed to be already present in the expected locations.
 
-## `data_analysis/pca_visualization.py`
+### `data_analysis/pca_visualization.py`
 
 This module is used to reproduce the **PCA-based embedding analyses** presented
 in the thesis.
