@@ -11,7 +11,7 @@ into a JSONL dataset where each record contains:
 - the influential event lists for each historical match (POV-aligned).
 
 History construction mirrors the baseline roster-aware indexing logic used in
-`winner_prediction/baseline_lstm.py`: history is retrieved for the same
+`predictions/run_experiment.py`: history is retrieved for the same
 (team_name, roster) and restricted to matches strictly earlier than the target.
 """
 
