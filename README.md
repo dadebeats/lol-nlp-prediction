@@ -1,23 +1,19 @@
 # Diploma Thesis – Documentation
-**Title**: Exploring language-based representations for outcome prediction in League
+- **Title**: Exploring language-based representations for outcome prediction in League
 of Legends
 
-**What the project is about**: This thesis sets a hypothesis that the embedding representation of League of Legends
-match, organized to historical sequences, can be used to predict match outcomes.
-We conduct exploratory analysis and quantitative experiments to validate this hypothesis.
-As a paralell approach we perform large language model-based prediction experiments.
+- **Project overview**: This thesis investigates whether embedding representations of League of Legends
+matches, organized into historical sequences, can be used to predict match outcomes.
+Exploratory analysis and quantitative experiments are conducted to evaluate this hypothesis.
+In parallel, large language model–based prediction experiments are explored.
 
-**What's in this repo**: This repository contains the code and datasets used in the diploma thesis.
 
-**What's in this README**: The README provides basic documentation for navigating the repository and
-running the experiments from the user POV and also contains the technical POV.
+- **What's in this repo**: This repository contains the code and datasets used in the diploma thesis.
 
-_Where possible, code is linked to thesis chapters via docstrings and folder
-names._
+- **What's in this README**: The README provides documentation for navigating the repository and
+running the experiments from both the user and technical perspectives.
 
 ## Quickstart
-TODO: Add some quickstart experiment
-
 Although it would be possible to download the raw data and rerun the full
 preprocessing pipeline, we provide the **final datasets** directly.
 
@@ -27,6 +23,11 @@ Reasons:
 - Intermediate steps (scraping, ASR correction, embeddings) involve repeated
   data copies and are not optimized for re-execution.
 - Providing final datasets allows reviewers to focus on the experiments.
+
+The core of this thesis lies in the experiments with embeddings and in
+the LLM-powered prediction pipeline.
+As a quickstart for exploring the repository, two Jupyter notebooks are provided.
+
 
 ---
 
@@ -78,7 +79,6 @@ The repository is organized into the following top-level folders:
   - `llm_predictions`
 
 
-
 ---
 
 ## User documentation
@@ -89,19 +89,15 @@ User-facing scripts are located primarily in:
 - `data_analysis/`
 
 Each experiment can be run via Python scripts with command-line arguments.
-Example commands are provided in the thesis and in inline comments.
+Example commands are provided in the thesis.
+Datasets are assumed to be already present in the expected locations as mentioned in the quickstart.
 
-Datasets are assumed to be already present in the expected locations.
-
-### `data_analysis/pca_visualization.py`
+### `data_analysis/embedding_pca_analysis.py`
 
 This module is used to reproduce the **PCA-based embedding analyses** presented
 in the thesis.
 
-It operates on datasets that already contain precomputed text embeddings and
-match metadata. Running the file computes a global PCA projection and generates
-publication-ready visualizations that illustrate structure in the embedding
-space.
+
 
 The script produces multiple PCA plots, including:
 - team-vs-team comparisons using half-markers,
@@ -109,15 +105,18 @@ The script produces multiple PCA plots, including:
 - continuous coloring by numerical match properties (e.g. kill difference,
   game length).
 
-All outputs are saved as `.png` figures, shown with pyplot and correspond directly to analyses
-discussed in the experimental section of the thesis.
+The embeddings used can be changed by selecting a different input dataset.
+The metadata used for coloring can be modified via the `color_cols` parameter of the following functions:
 
-User can change the embeddings used by changing the dataset to be loaded.
+pca_full_markers_pipeline
+pca_half_markers_pipeline
 
 ### `llm_predictions`
 
-We do not recommend using scripts in this folder as there would be need to load credit to the OpenAI API and provide
-API key. We provide the outputs the API returned, anyway.
+The outputs used in the thesis are provided in `llm_predictions/`, as re-running the code requires an API key.
+The Jupyter notebook `llm_predictions/example.ipynb` contains code for inspecting these outputs.
+
+
 
 ### `predictions/run_experiment.py`
 
@@ -184,7 +183,7 @@ descriptions) are provided in the thesis appendices.
 ### `data_scraping/`
 
 Technical scripts documenting how raw match commentary was collected from
-YouTube. This stage is not intended to be re-executed by users.
+YouTube.
 
 ---
 
@@ -222,13 +221,11 @@ Scripts for cleaning, aligning, and merging multiple data sources
 (Oracle’s Elixir match data and YouTube commentary text) into a unified dataset.
 
 This stage documents how the final modeling datasets were constructed.
-It is not intended to be re-executed by users.
 
 The outputs of this folder are **final, ready-to-use datasets** consumed by
 downstream experiments (`predictions/`, `llm_predictions/`).
 
-Users are **not expected** to run these scripts. The resulting CSV / Parquet
-files are assumed to already be present in the repository.
+These resulting CSV / Parquet files are assumed to already be present in the repository.
 
 #### Oracle Elixir preprocessing
 
@@ -310,17 +307,17 @@ This module is used to analyze clustering, variation, and extremes in the
 embedding space.
 
 ### `asr/`
-In the file `test_and_choose_gpt_model.py)` we intake a manually create json lines (.jsonl) file containing the
-transcript and we use it as an input to OpenAI API calls, calling the specified models (gpt5, gpt5_mini...).
-For each of the models we add their output to the output file which is in .jsonl format as well.
+In the file `test_and_choose_gpt_model.py`, a manually created JSON Lines (`.jsonl`) file containing
+commentary transcripts is used as input to OpenAI API calls. Multiple models (e.g., `gpt5`, `gpt5_mini` ...) 
+are queried, and each model’s output is appended to an output file, also stored in `.jsonl` format.
 
-Next in `asr_evaluation.py` we evaluate all the models on our devset (`asr_error_coorection_deveset_corrected.jsonl`) with metrics from the
-jiwer
-;nltk.translate
-;bert_score python modules. We save the results in a dataframe.
+Next, `asr_evaluation.py` evaluates all candidate models on a 
+development set (`asr_error_correction_deveset_corrected.jsonl`) using metrics from the `jiwer`, `nltk.translate`, 
+and `bert_score` Python modules. The evaluation results are aggregated and saved as a dataframe.
 
-Finally in `run_batch_gpt.py`, after choosing which model to proceed with, we run the whole pipeline again and this time on the whole dataset.
-This returns and saves a dataframe with added (or replaced) column "text".
+Finally, in `run_batch_gpt.py`, the selected model is applied to the full dataset by rerunning the pipeline end-to-end.
+This produces and saves a dataframe in which the transcript text column is added or replaced with the corrected output.
+
 
 
 ### `llm_predictions/`
@@ -328,8 +325,7 @@ This returns and saves a dataframe with added (or replaced) column "text".
 This folder contains the large language model (LLM)–based pipelines used in the
 thesis to extract structured match information from commentary transcripts and
 to predict match outcomes via prompting.  
-These scripts are **not intended for re-execution by users**; all model outputs
-used in the thesis are provided directly.
+All model outputs used in the thesis are provided directly.
 
 The pipeline consists of three stages: Pass 1 event extraction, sequence
 construction, and Pass 2 outcome prediction.
@@ -368,7 +364,7 @@ This representation mirrors the history construction used in baseline models.
 
 ---
 
-#### Pass 2: Sequential histories → winner prediction  
+#### Pass 2: Sequential histories → match outcome  
 **File:** `run_batch_gpt_pass2.py`
 
 This script predicts match outcomes directly from the sequential histories
@@ -398,8 +394,7 @@ used for all LSTM-based baselines in the thesis. It is designed as a single,
 self-contained experiment driver that combines data preparation, model
 training, hyperparameter search, and result logging.
 
-The script is not intended as a reusable library component; instead, it serves
-as an executable experiment specification whose behavior is controlled entirely
+The script serves as an executable experiment specification whose behavior is controlled entirely
 via command-line arguments.
 
 ---
