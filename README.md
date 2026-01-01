@@ -1,13 +1,22 @@
 # Diploma Thesis – Documentation
+**Title**: Exploring language-based representations for outcome prediction in League
+of Legends
 
-This repository contains the code and datasets used in the diploma thesis.
-The README provides basic documentation for navigating the repository and
-running the experiments.
+**What the project is about**: This thesis sets a hypothesis that the embedding representation of League of Legends
+match, organized to historical sequences, can be used to predict match outcomes.
+We conduct exploratory analysis and quantitative experiments to validate this hypothesis.
+As a paralell approach we perform large language model-based prediction experiments.
 
-Where possible, code is linked to thesis chapters via docstrings and folder
-names.
+**What's in this repo**: This repository contains the code and datasets used in the diploma thesis.
 
-## Data and reproducibility
+**What's in this README**: The README provides basic documentation for navigating the repository and
+running the experiments from the user POV and also contains the technical POV.
+
+_Where possible, code is linked to thesis chapters via docstrings and folder
+names._
+
+## Quickstart
+TODO: Add some quickstart experiment
 
 Although it would be possible to download the raw data and rerun the full
 preprocessing pipeline, we provide the **final datasets** directly.
@@ -39,7 +48,7 @@ The repository is organized into the following top-level folders:
 - **`data_analysis/`**  
   Exploratory analysis and sanity checks performed during development.
 
-- **`winner_prediction/`**  
+- **`predictions/`**  
   LSTM-based prediction models, including:
   - random and history-based baselines,
   - numerical-feature models,
@@ -50,12 +59,33 @@ The repository is organized into the following top-level folders:
   via prompting.
 
 ---
+## Chapter to repository mapping
+
+- **Chapter 3 — Data in League of Legends**  
+  - `data_scraping`  
+  - `asr`  
+  - `data_integration` *(tabular dataset construction)*
+
+- **Chapter 4 — Task definition, lower and upper bounds on performance**  
+  - `predictions`
+
+- **Chapter 5 — Do Raw Text Embeddings Carry Predictive Signal?**  
+  - `data_integration` *(embeddings, embedding preprocessing)*  
+  - `data_analysis`  
+  - `predictions`
+
+- **Chapter 6 — Large Language Models for Match Outcome Prediction**  
+  - `llm_predictions`
+
+
+
+---
 
 ## User documentation
 
 User-facing scripts are located primarily in:
 
-- `winner_prediction/`
+- `predictions/`
 - `llm_predictions/`
 
 Each experiment can be run via Python scripts with command-line arguments.
@@ -89,7 +119,7 @@ User can change the embeddings used by changing the dataset to be loaded.
 We do not recommend using scripts in this folder as there would be need to load credit to the OpenAI API and provide
 API key. We provide the outputs the API returned, anyway.
 
-### `winner_prediction/baseline_lstm.py`
+### `predictions/run_experiment.py`
 
 This script is the core experimental driver used in Chapters 4 and 5 of the
 thesis. It runs the specified training procedure, reports the best validation
@@ -97,7 +127,7 @@ metric observed in each run, saves the best-performing model, and produces
 training curves.
 
 In its basic form, the script can be executed without parameters
-(`python baseline_lstm.py`), in which case a default configuration is used.
+(`python run_experiment.py`), in which case a default configuration is used.
 
 The primary configuration parameters are `--dataset`, which specifies the input
 dataset, and `--optuna_run`, which toggles between standard training and
@@ -144,7 +174,7 @@ Technical details are documented directly in the code and organized by folder:
 - `data_scraping/`: data sources, scraping logic
 - `data_integration/`: schema alignment and feature construction
 - `asr/`: ASR correction rules and heuristics
-- `winner_prediction/`: model definitions, loss functions, training loops
+- `predictions/`: model definitions, loss functions, training loops
 - `llm_predictions/`: prompt templates and evaluation logic
 
 Further details (hyperparameters, configurations, and full experiment
@@ -195,7 +225,7 @@ This stage documents how the final modeling datasets were constructed.
 It is not intended to be re-executed by users.
 
 The outputs of this folder are **final, ready-to-use datasets** consumed by
-downstream experiments (`winner_prediction/`, `llm_predictions/`).
+downstream experiments (`predictions/`, `llm_predictions/`).
 
 Users are **not expected** to run these scripts. The resulting CSV / Parquet
 files are assumed to already be present in the repository.
@@ -361,7 +391,7 @@ The output is also a JSONL file.
   directly in the repository.
 
 
-### `winner_prediction/baseline_lstm.py`
+### `predictions/run_experiment.py`
 
 This module implements the full training, evaluation, and reporting pipeline
 used for all LSTM-based baselines in the thesis. It is designed as a single,
