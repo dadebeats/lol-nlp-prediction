@@ -217,17 +217,15 @@ def build_sequence_jsonl(
         if len(left_idx) < min_history or len(right_idx) < min_history:
             continue
 
-        def hist_item(j: int, pov_side: str) -> Dict[str, Any]:
-            """Build a single POV-aligned historical match entry."""
+        def hist_item(j: int, target_team: str) -> Dict[str, Any]:
             r = df.loc[j]
-            if pov_side == "team1":
-                pov_team = r["team1_name"]
-                opp_team = r["team2_name"]
-                pov_win = _pov_result(r, "team1")
+
+            if r["team1_name"] == target_team:
+                opponent = r["team2_name"]
+                pov_win = int(r["team1_result"])
             else:
-                pov_team = r["team2_name"]
-                opp_team = r["team1_name"]
-                pov_win = _pov_result(r, "team2")
+                opponent = r["team1_name"]
+                pov_win = 1 - int(r["team1_result"])
 
             ev = r["__events"]
             if max_events_per_match > 0:
@@ -236,14 +234,14 @@ def build_sequence_jsonl(
             return {
                 "match_idx": int(j) if isinstance(j, (int, np.integer)) else str(j),
                 "date": r["date"].isoformat() if pd.notna(r["date"]) else None,
-                "team": pov_team,
-                "opponent": opp_team,
+                "team": target_team,
+                "opponent": opponent,
                 "pov_win": int(pov_win),
                 "events": ev,
             }
 
-        team1_hist = [hist_item(j, "team1") for j in left_idx]
-        team2_hist = [hist_item(j, "team2") for j in right_idx]
+        team1_hist = [hist_item(j, row["team1_name"]) for j in left_idx]
+        team2_hist = [hist_item(j, row["team2_name"]) for j in right_idx]
 
         target = {
             "match_idx": int(match_idx) if isinstance(match_idx, (int, np.integer)) else str(match_idx),
