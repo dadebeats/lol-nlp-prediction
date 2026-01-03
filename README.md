@@ -1,4 +1,7 @@
 # Diploma Thesis – Documentation
+
+## Introduction
+
 - **Title**: Exploring language-based representations for outcome prediction in League
 of Legends
 
@@ -219,6 +222,7 @@ settings are provided in the thesis appendix.
 
 Further details (hyperparameters, configurations, and full experiment
 descriptions) are provided in the thesis appendices.
+
 ---
 
 ## Technical documentation
