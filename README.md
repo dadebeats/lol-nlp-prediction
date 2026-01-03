@@ -14,19 +14,69 @@ In parallel, large language model–based prediction experiments are explored.
 running the experiments from both the user and technical perspectives.
 
 ## Quickstart
+
+To begin, complete the following preparatory steps:
+
+- Unpack the datasets provided in the accompanying ZIP attachment of the thesis and place them in the root folder.
+- Prepare a Python environment and install the required dependencies listed in
+  the project’s requirements file.
+
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+After completing the steps above, there are two ways to explore and reproduce the
+work presented in this thesis.
+
+---
+
+### Quickstart A: Interactive exploration via Jupyter notebooks
+
+This option allows readers to explore the experiments interactively using the
+provided Jupyter notebooks. The notebooks load the final datasets and reproduce
+the key analyses, figures, and diagnostic experiments discussed in the thesis.
+
+This workflow is suitable for readers who want to:
+
+- Inspect intermediate results interactively
+- Reproduce figures without rerunning full training pipelines
+
+Jupyter is included as a dependency in the project environment.
+
+- For the embedding chapters (4,5) refer to predictions/example.ipynb (limited to exploration - 
+for model training refer to the Quickstart B)
+- For the LLM chapters (6) refer to llm_predictions/example.ipynb
+
+---
+
+### Quickstart B: Re-running experiments via scripts
+
+This option allows readers to reproduce the experiments by running the Python
+scripts included in the repository. It covers the baseline models, the
+embedding-based sequence models, and the LLM-based prediction pipeline.
+
+This workflow mirrors the experimental setup used to generate the reported
+results and is suitable for readers who wish to:
+
+- Rerun training and evaluation procedures
+- Modify hyperparameters or configurations
+- Inspect model behavior through direct execution
+
+___
+
 Although it would be possible to download the raw data and rerun the full
-preprocessing pipeline, we provide the **final datasets** directly.
+preprocessing pipeline, this repository provides the **final datasets** directly.
+This design choice is motivated by the following considerations:
 
-Reasons:
-- Data preparation was performed sequentially rather than as a clean
-  end-to-end pipeline.
-- Intermediate steps (scraping, ASR correction, embeddings) involve repeated
-  data copies and are not optimized for re-execution.
-- Providing final datasets allows reviewers to focus on the experiments.
-
-The core of this thesis lies in the experiments with embeddings and in
-the LLM-powered prediction pipeline.
-As a quickstart for exploring the repository, two Jupyter notebooks are provided.
+- Data preparation was performed sequentially rather than as a single end-to-end
+  pipeline.
+- Several intermediate steps—such as scraping, ASR correction, and embedding
+  extraction—involve repeated data copies and are not optimized for
+  re-execution.
+- Providing the final datasets allows reviewers to focus directly on the
+  experimental results rather than on data reconstruction.
 
 
 ---
