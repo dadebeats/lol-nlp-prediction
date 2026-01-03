@@ -8,7 +8,8 @@ Exploratory analysis and quantitative experiments are conducted to evaluate this
 In parallel, large language model–based prediction experiments are explored.
 
 
-- **What's in this repo**: This repository contains the code and datasets used in the diploma thesis.
+- **What's in this repo**: This repository contains the code and datasets used in the diploma thesis, 
+as well as two exploratory Jupyter notebooks.
 
 - **What's in this README**: The README provides documentation for navigating the repository and
 running the experiments from both the user and technical perspectives.
@@ -45,9 +46,9 @@ This workflow is suitable for readers who want to:
 
 Jupyter is included as a dependency in the project environment.
 
-- For the embedding chapters (4,5) refer to predictions/example.ipynb (limited to exploration - 
+- For the embedding chapters (4,5) refer to **predictions/example.ipynb** (limited to exploration - 
 for model training refer to the Quickstart B)
-- For the LLM chapters (6) refer to llm_predictions/example.ipynb
+- For the LLM chapter (6) refer to **llm_predictions/example.ipynb**
 
 ---
 
@@ -112,10 +113,12 @@ The repository is organized into the following top-level folders:
 ---
 ## Chapter to repository mapping
 
-- **Chapter 3 — Data in League of Legends**  
+- **Chapter 3 — Data, datasets and our modeling approach**  
   - `data_scraping`  
   - `asr`  
   - `data_integration` *(tabular dataset construction)*
+  - `predictions` (for the LSTM definition: file `lstm.py` and 
+`sequence_dataset.py` for the sequential dataset construction)
 
 - **Chapter 4 — Task definition, lower and upper bounds on performance**  
   - `predictions`
@@ -158,7 +161,7 @@ The script produces multiple PCA plots, including:
 The embeddings used can be changed by selecting a different input dataset.
 The metadata used for coloring can be modified via the `color_cols` parameter of the following functions:
 
-pca_full_markers_pipeline
+pca_full_markers_pipeline;
 pca_half_markers_pipeline
 
 ### `llm_predictions`
@@ -214,6 +217,8 @@ Remaining parameters correspond to standard LSTM and optimization
 hyperparameters. Examples of full script invocations with concrete parameter
 settings are provided in the thesis appendix.
 
+Further details (hyperparameters, configurations, and full experiment
+descriptions) are provided in the thesis appendices.
 ---
 
 ## Technical documentation
@@ -225,10 +230,6 @@ Technical details are documented directly in the code and organized by folder:
 - `asr/`: ASR correction rules and heuristics
 - `predictions/`: model definitions, loss functions, training loops
 - `llm_predictions/`: prompt templates and evaluation logic
-
-Further details (hyperparameters, configurations, and full experiment
-descriptions) are provided in the thesis appendices.
-
 
 ### `data_scraping/`
 
@@ -333,14 +334,7 @@ parameterize preprocessing and embedding.
 - Generates deterministic, human-readable identifiers for datasets
 - Ensures consistent naming and traceability across experiments
 
----
-
-#### Notes on reproducibility
-
-- Data integration was performed sequentially and iteratively
-- Intermediate artifacts are not optimized for re-execution
-- Final integrated datasets are provided directly with the repository
-- 
+ 
 ### `data_analysis/embedding_pca_analysis.py`
 
 PCA-based analysis of text embeddings for structural inspection and comparison.
@@ -431,21 +425,24 @@ The output is also a JSONL file.
 
 #### Reproducibility notes
 
-- All LLM-based scripts require external API access and are not meant to be run
-  by users or reviewers.
+- All LLM-based scripts require external API access.
 - Final extracted events and predictions used in the thesis are provided
-  directly in the repository.
+  directly in the repository and explored in the **example.ipynb** notebook.
 
 
 ### `predictions/run_experiment.py`
 
-This module implements the full training, evaluation, and reporting pipeline
+This script orchestrates the full training, evaluation, and reporting pipeline
 used for all LSTM-based baselines in the thesis. It is designed as a single,
 self-contained experiment driver that combines data preparation, model
 training, hyperparameter search, and result logging.
 
 The script serves as an executable experiment specification whose behavior is controlled entirely
 via command-line arguments.
+The individual components are extracted to their own files for easier maintenance and readability (
+e.g. `lstm.py` and `sequence_dataset.py` for the LSTM definition and dataset
+construction, respectively
+).
 
 ---
 
@@ -536,19 +533,5 @@ When Optuna optimization is enabled:
 
 This mode reuses the same data loading and training logic as standard runs,
 ensuring comparability between optimized and non-optimized experiments.
-
----
-
-#### Design notes
-
-- The script deliberately prioritizes **experiment traceability** over modular
-  abstraction.
-- Data preparation, training, and evaluation are colocated to minimize hidden
-  state across runs.
-- All randomness-sensitive operations are repeated and aggregated rather than
-  relying on a single deterministic seed.
-
-This structure ensures that results reported in the thesis correspond directly
-to explicit, reproducible script invocations.
 
 
