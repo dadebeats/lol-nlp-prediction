@@ -352,7 +352,7 @@ if __name__ == "__main__":
 
     embedding_factory = EmbeddingFactory(config)
 
-    df = pd.read_csv("dataset_filtered.csv", index_col=[0])
+    df = pd.read_parquet("m-player+team_asr-corr_mdl-openai-oai_emb3_ck-t512-o256.parquet", index_col=[0])
     df_with_vecs = add_embeddings_to_df(df, embedding_factory, text_col="text")
 
     df_with_vecs.to_parquet(f"{config.to_string()}.parquet")
