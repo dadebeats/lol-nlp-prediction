@@ -221,8 +221,14 @@ Remaining parameters correspond to standard LSTM and optimization
 hyperparameters. Examples of full script invocations with concrete parameter
 settings are provided in the thesis appendix.
 
+An example of a run with rich configuration looks like this:
+```
+python predictions/run_experiment.py --target_col team1_result --feature_fn numerical --pca 600 --hidden_dim 256 --num_layers 3 --dropout 0.297 --lr 0.0005 --weight_decay 0.000004 --batch_size 64 --epochs 100
+ --runs 10
+```
 Further details (hyperparameters, configurations, and full experiment
 descriptions) are provided in the thesis appendices.
+
 
 ---
 
