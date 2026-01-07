@@ -68,6 +68,7 @@ results and is suitable for readers who wish to:
 - Modify hyperparameters or configurations
 - Inspect model behavior through direct execution
 
+Concrete command-line invocations used to generate the reported results are provided in the thesis appendix
 ___
 
 Although it would be possible to download the raw data and rerun the full
