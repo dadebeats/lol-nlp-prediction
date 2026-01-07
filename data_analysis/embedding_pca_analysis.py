@@ -452,7 +452,7 @@ def pca_full_markers_pipeline(
 
 if __name__ == "__main__":
     # Load the embedded dataset (must contain an 'embedding' column and match metadata).
-    df = load_parquet("m-player+team_asr-corr_mdl-hf-minilm_ck-t512-o256_pool-max.parquet")
+    df = load_parquet("m-player+team_asr-corr_mdl-openai-oai_emb3_ck-t512-o256.parquet")
 
     # Quick derived features for optional coloring/filtering in PCA plots.
     df["total_kills"] = df["team1_kills"] + df["team2_kills"]
